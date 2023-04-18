@@ -1,0 +1,479 @@
+/***********
+  Utilities
+************/
+.noUserSelect {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/*******
+  Toast
+********/
+.tata.success {
+  font-family: Helvetica, "Segoe UI", Arial, sans-serif;
+  background: white !important;
+  color: green;
+  border: 1px solid green;
+  box-shadow: 0 12px 20px 3px rgb(0 0 0 / 14%), 0 9px 24px 8px rgb(0 0 0 / 12%), 0 11px 15px -7px rgb(0 0 0 / 20%);
+}
+
+.tata.error {
+  font-family: Helvetica, "Segoe UI", Arial, sans-serif;
+  background: white !important;
+  color: red;
+  border: 1px solid red;
+  box-shadow: 0 12px 20px 3px rgb(0 0 0 / 14%), 0 9px 24px 8px rgb(0 0 0 / 12%), 0 11px 15px -7px rgb(0 0 0 / 20%);
+}
+
+/******************
+  Offcanvas Navbar
+******************/
+.bg-lavender {
+  background: lavender;
+}
+
+.offcanvas-backdrop.show {
+  opacity: 0.2;
+}
+
+.offcanvas-body .material-icons-outlined {
+  color: gray;
+  vertical-align: bottom;
+}
+
+.offcanvas-body .nav-item .nav-link:hover {
+  color: black;
+  font-weight: 600;
+}
+
+/**************
+  Search bar
+***************/
+#searchbar {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1050;
+}
+
+#search-icon,
+#search-icon-clear {
+  line-height: 1.2;
+  vertical-align: bottom;
+  font-size: 2rem;
+  color: gray;
+}
+
+#search-icon:hover,
+#search-icon-clear:hover {
+  color: #424242;
+}
+
+#search-input {
+  display: none;
+  min-width: 275px;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: .375rem;
+}
+
+#search-icon-clear {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+#search-noresults {
+  display: none;
+}
+
+/****************
+  Search results
+*****************/
+.orgchart .node.matched {
+  background-color: rgba(238, 217, 54, 0.5);
+}
+
+.orgchart .hierarchy.first-shown::before {
+  left: calc(50% - 1px);
+  width: calc(50% + 1px);
+}
+
+.orgchart .hierarchy.last-shown::before {
+  width: calc(50% + 1px);
+}
+
+.orgchart .hierarchy.first-shown.last-shown::before {
+  width: 2px;
+}
+
+/*****************
+  Toolbar
+******************/
+#toolbar {
+  background: white;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+.btnToolbar {
+  font-size: 2rem;
+  color: gray;
+}
+
+.btnToolbar:hover {
+  color: #606060;
+  box-shadow: 2px 2px 12px 4px rgba(238, 238, 238, 1);
+}
+
+/*****************
+  Autosave icon
+******************/
+#autosave {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+}
+
+/*****************
+  Chart container
+******************/
+#chart-container {
+  position: relative;
+  /* height: 100vh; */
+  /* margin: 0.5rem; */
+  overflow: auto;
+  text-align: center;
+}
+
+.orgchart {
+  /* height: 100vh; */
+  height: 90vh;
+}
+
+.hierarchy {
+  margin: 0 auto;
+}
+
+/************** 
+  Chart lines
+***************/
+.orgchart .hierarchy::before {
+  border-top: 2px solid lightgray;
+}
+
+.orgchart>ul>li>ul li>.node::before {
+  background-color: lightgray;
+  top: -14px;
+  height: 10px;
+  width: 2px;
+}
+
+.orgchart .node:not(:only-child)::after {
+  background-color: lightgray;
+}
+
+/**************************** 
+  Form for editing node info 
+*****************************/
+#modalEdit .material-icons-outlined {
+  vertical-align: bottom;
+  color: #462282;
+}
+
+button[aria-labelledby="clr-open-label"] {
+  width: 100%;
+}
+
+/************* 
+  Text editor 
+*************/
+[data-trix-button-group="file-tools"],
+[data-trix-attribute="heading1"],
+[data-trix-attribute="quote"],
+[data-trix-attribute="code"] {
+  display: none !important;
+}
+
+/******** 
+  Spinner 
+********/
+.myMask {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2000;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.myMask .spinner {
+  position: absolute;
+  top: calc(50% - 50px);
+  left: calc(50% - 50px);
+}
+
+.spinner::before,
+.myMask .spinner::before {
+  width: 100px;
+  height: 100px;
+  border-width: 10px;
+  border-radius: 50px;
+  border-top-color: rgba(72, 38, 131, 0.8);
+  border-bottom-color: rgba(72, 38, 131, 0.8);
+  border-left-color: rgba(72, 38, 131, 0.8);
+}
+
+/******** 
+  Nodes 
+********/
+.orgchart .node {
+  width: 175px;
+  height: 100px;
+  margin: 0 5px 20px 5px !important;
+  padding: 3px 5px !important;
+  border: 1px solid lightgray !important;
+  border-top: 4px solid #462282 !important;
+  border-radius: 6px;
+}
+
+.naam {
+  position: absolute;
+  top: 30%;
+  left: 0;
+  width: 170px;
+  line-height: 1.1;
+}
+
+/* Node menu icon */
+.show-node-menu-icon {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  color: gray;
+  font-size: 1.8rem;
+  z-index: 10;
+}
+
+.show-node-menu-icon:hover {
+  color: #462282;
+  transform: scale(1.2);
+}
+
+/* Node menu */
+.nodeMenu {
+  z-index: 1;
+  height: 77px;
+  width: 140px;
+  position: absolute;
+  bottom: -70px;
+  right: 0;
+  opacity: 1;
+  border: 1px solid lightgray;
+  border-radius: 6px;
+  color: gray;
+  background: white;
+}
+
+.btnNodeMenu {
+  width: 100%;
+  border-bottom: 1px solid lightgray;
+}
+
+.btnNodeMenu:hover {
+  background: #eee;
+}
+
+#btnEditNode:hover {
+  color: darkorange;
+}
+
+#btnAddNode:hover {
+  color: green;
+}
+
+#btnDeleteNode:hover {
+  color: red;
+}
+
+.btnNodeMenu span {
+  pointer-events: none;
+}
+
+/* Node show info icon */
+.orgchart .show-info-icon {
+  transition: opacity .5s;
+  opacity: 0;
+  left: -5px;
+  top: -10px;
+  z-index: 2;
+  position: absolute;
+}
+
+.orgchart .show-info-icon::before {
+  background-color: rgba(70, 34, 130, 0.5);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.orgchart .show-info-icon:hover::before {
+  background-color: #462282;
+}
+
+.orgchart .node:hover .show-info-icon {
+  opacity: 1;
+}
+
+/* Colors for top border */
+.node.meteorite {
+  border-top: 4px solid #462282 !important;
+}
+
+.node.amethyst {
+  border-top: 4px solid #9966cc !important;
+}
+
+.node.magenta {
+  border-top: 4px solid #d121c2 !important;
+}
+
+.node.pink {
+  border-top: 4px solid #ff69b4 !important;
+}
+
+.node.wine {
+  border-top: 4px solid #8f185e !important;
+}
+
+.node.red {
+  border-top: 4px solid #b71c1c !important;
+}
+
+.node.tomato {
+  border-top: 4px solid #ff4500 !important;
+}
+
+.node.orange {
+  border-top: 4px solid #f29200 !important;
+}
+
+.node.blue {
+  border-top: 4px solid #207599 !important;
+}
+
+.node.babyblue {
+  border-top: 4px solid #89cff0 !important;
+}
+
+.node.green {
+  border-top: 4px solid #27874b !important;
+}
+
+.node.kaki {
+  border-top: 4px solid #9b9d16 !important;
+}
+
+.node.turquoise {
+  border-top: 4px solid #7dcaac !important;
+}
+
+.node.brown {
+  border-top: 4px solid #8f5b1e !important;
+}
+
+.node.rosybrown {
+  border-top: 4px solid #bc8f8f !important;
+}
+
+/* Focused node */
+.orgchart .node.focused {
+  background-color: lavender;
+}
+
+.orgchart ul li .node:hover {
+  background-color: rgba(177, 41, 255, 0.2);
+}
+
+.orgchart .node .edge::before {
+  border-color: #462282;
+}
+
+.oci-chevron-up::before,
+.oci-chevron-left::before,
+.oci-chevron-down::before,
+.oci-chevron-right::before {
+  border-width: 0 0.15rem 0.15rem 0;
+}
+
+
+/***************************************************
+   LEFT TO RIGHT - werkt niet met custom template
+***************************************************/
+.orgchart.l2r {
+  transform: rotate(-90deg) translate(-100%) translateY(-50%);
+  transform-origin: left top;
+}
+
+.orgchart.l2r .node,
+.orgchart.r2l .node {
+  transform: rotate(90deg);
+  transform-origin: left top;
+  min-width: 150px;
+  max-height: 75px;
+}
+
+.orgchart.l2r .node .title {
+  transform: rotate(-90deg) translate(-45px, -45px) rotateY(180deg);
+  transform-origin: bottom center;
+}
+
+.orgchart.l2r .hierarchy::before {
+  border-top: 1px solid lightgray;
+}
+
+.orgchart.l2r>ul>li>ul li>.node::before {
+  transform: rotate(90deg) translate(45px, 80px);
+}
+
+.orgchart.l2r .node:not(:only-child)::after {
+  background-color: lightgray;
+}
+
+.orgchart.l2r .node .content {
+  transform: rotate(-90deg) translate(-45px, -45px) rotateY(180deg);
+  transform-origin: top center;
+  width: 130px;
+}
+
+.orgchart.l2r .node.slide-down,
+.orgchart.r2l .node.slide-down {
+  transform: translateY(130px);
+}
+
+.orgchart.l2r .node.slide-up,
+.orgchart.r2l .node.slide-up {
+  transform: translateY(-130px);
+}
+
+.orgchart.l2r .node.slide-right,
+.orgchart.r2l .node.slide-right {
+  transform: translateX(40px);
+}
+
+.orgchart.l2r .node.slide-left,
+.orgchart.r2l .node.slide-left {
+  transform: translateX(-40px);
+}

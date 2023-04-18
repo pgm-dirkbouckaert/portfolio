@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CVO GENT</title>
+
+  <link rel="shortcut icon" href="https://cvogent.be/images/favicon.png" type="image/png">
+
+  <!-- BOOTSTRAP CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <!-- MATERIAL ICONS -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet" crossorigin="anonymous">
+  <!-- COLOR PICKER CSS -->
+  <link rel="stylesheet" href="css/coloris.css" />
+  <!-- TEXT EDITOR CSS -->
+  <link rel="stylesheet" href="css/trix.css">
+  <!-- JQUERY CSS -->
+  <link rel="stylesheet" href="css/jquery.orgchart.css">
+  <!-- CUSTOM CSS -->
+  <link rel="stylesheet" href="css/app.css">
+
+</head>
+
+<body>
+
+  <!-- CHART -->
+  <div id="chart-container" style="margin-top: 50px"></div>
+
+  <!-- SEARCHBAR -->
+  <div id="searchbar" class="col" style="max-width:350px">
+    <span id="search-icon" class="material-icons noUserSelect" role="button" title="Toon/verberg zoekveld">search</span>
+    <input type="text" name="search" id="search-input" placeholder="Zoek op functie, naam of taken">
+    <span id="search-icon-clear" class="material-icons noUserSelect" role="button" title="Zoekresultaten wissen">close</span>
+    <div id="search-noresults" class="ms-5 text-muted">Niets gevonden</div>
+  </div>
+
+  <!-- TOOLBAR -->
+  <div id="toolbar">
+    <div><span class="material-icons btnToolbar noUserSelect" id="btnExpand" role="button" title="Alles uitklappen">zoom_out_map</span></div>
+    <div><span class="material-icons btnToolbar noUserSelect" id="btnCollapse" role="button" title="Alles inklappen">zoom_in_map</span></div>
+    <div><span class="material-icons btnToolbar noUserSelect" id="btnFit" role="button" title="Centreren">center_focus_strong</span></div>
+    <div><span class="material-icons btnToolbar noUserSelect" id="btnRefresh" role="button" title="Vernieuwen">refresh</span></div>
+    <div><span class="material-icons btnToolbar noUserSelect" id="btnZoomIn" role="button" title="Inzoomen">add</span></div>
+    <div><span class="material-icons btnToolbar noUserSelect" id="btnZoomOut" role="button" title="Uitzoomen">remove</span></div>
+  </div>
+
+  <!-- AUTOSAVE STATUS -->
+  <div id="autosave">
+    <span title="Auto save off" class="material-icons">toggle_off</span>
+  </div>
+
+  <!-- OFFCANVAS MENU FOR ACTIONS -->
+  <nav class="navbar bg-white fixed-top" id="navbarMenu">
+    <div class="container-fluid">
+      <button class="navbar-toggler ms-auto" id="btnShowMenu" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+              aria-controls="offcanvasNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header bg-lavender">
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel"><img src="https://cvogent.be/images/organigram/logo2.png" width="100" alt="logo"></h5>
+          <button type="button" id="btnCloseMenu" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <li class="nav-item">
+              <a class="nav-link btnMenu" id="btnSave" role="button">
+                <span class="material-icons-outlined">save</span> Opslaan</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link btnMenu" id="btnExportJSON" role="button">
+                <span class="material-icons-outlined">data_object</span> Exporteer JSON
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link btnMenu" id="btnExportPDF" role="button">
+                <span class="material-icons-outlined">picture_as_pdf</span> Exporteer PDF
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link btnMenu" id="btnExportPNG" role="button">
+                <span class="material-icons-outlined">image</span> Exporteer PNG
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- OFFCANVAS MENU FOR INFO -->
+  <nav class="navbar bg-white fixed-top d-none" id="navbarInfo">
+    <div class="container-fluid">
+      <button class="navbar-toggler ms-auto" id="btnShowInfo" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasInfo"
+              aria-controls="offcanvasNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasInfo" aria-labelledby="info-foto">
+        <div class="offcanvas-header bg-lavender">
+          <h5 class="offcanvas-title" id="info-foto"><img src="https://cvogent.be/images/organigram/logo2.png" width="100" alt="logo"></h5>
+          <button type="button" id="btnCloseInfo" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body" id="navbarInfo-body"></div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MODAL FOR EDITING NODE -->
+  <div class="modal" id="modalEdit" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Bewerken: <span id="modalEdit-nodeNaam"></span></h5>
+          <button type="button" id="modalEdit-btnClose" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form id="modalEdit-form" class="needs-validation" novalidate>
+          <input type="hidden" name="currentNodeId" id="currentNodeId" value="">
+          <input type="hidden" name="currentClassName" id="currentClassName" value="">
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-sm-12 col-md-6">
+                <div class="mb-3">
+                  <label for="naam" class="form-label">Naam</label>
+                  <input type="text" name="naam" id="naam" class="form-control" required>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-6">
+                <div class="mb-3">
+                  <label for="functie" class="form-label">Functie
+                    <span class="material-icons-outlined" data-bs-toggle="tooltip" data-bs-placement="top"
+                          title="Of noteer: Afdeling / Actiedomein / Beleidsdomein">info</span>
+                  </label>
+                  <input type="text" name="functie" id="functie" class="form-control" required>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 col-md-6">
+                <div class="mb-3">
+                  <label for="email" class="form-label">E-mail</label>
+                  <input type="email" name="email" id="email" class="form-control">
+                </div>
+              </div>
+              <div class="col-sm-8 col-md-4">
+                <div class="mb-3">
+                  <label for="foto" class="form-label">Foto</label>
+                  <!-- <input type="text" name="foto" id="foto" class="form-control"> -->
+                  <select name="foto" id="foto" class="form-select"></select>
+                </div>
+              </div>
+              <div class="col-sm-4 col-md-2">
+                <div class="mb-3">
+                  <label for="kleur" class="form-label">Kleur</label>
+                  <input type="text" name="kleur" id="kleur" class="form-control" data-coloris>
+                </div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="taken" class="form-label">Taken</label>
+              <!-- <input type="text" name="taken" id="taken" class="form-control"> -->
+              <input type="hidden" name="taken" id="taken" value="">
+              <trix-editor input="taken" class="trix-content"></trix-editor>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Annuleren</button>
+            <button type="submit" class="btn btn-outline-success" id="modalEdit-btnSave">Opslaan</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL FOR DELETE NODE CONFIRMATION -->
+  <div class="modal" id="modalDelete" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Verwijderen</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Weet je zeker dat je het knoopppunt <span class="text-danger fw-bold"><span id="modalDelete-nodeNaam"></span> (inclusief alle
+              kinderen)</span> wil verwijderen?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuleren</button>
+          <button type="button" class="btn btn-outline-danger" id="modalDelete-btnDelete">Verwijderen</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- BOOTSTRAP JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+  <!-- LIBRARIES -->
+  <script src="lib/jquery.min.js"></script>
+  <script src="lib/html2canvas.min.js"></script>
+  <script src="lib/jspdf.umd.min.js"></script>
+  <script src="lib/FileSaver.min.js"></script>
+  <script src="lib/dom-to-image.min.js"></script>
+  <!-- <script src="https://cvogent.be/scripts/ckeditor/v4-moduleplan/ckeditor.js"></script> -->
+  <script src="lib/tata.min.js"></script>
+  <script src="lib/coloris.min.js"></script>
+  <script src="lib/trix.min.js"></script>
+  <!-- ORGCHART -->
+  <script src="data/data.js"></script>
+  <script src="js/template.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/jquery.orgchart.js"></script>
+
+  <script>
+
+    $(function () {
+
+      // -----------------------------
+      // Initialize Bootstrap tooltips
+      // -----------------------------
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+
+      // --------------------------------
+      // Initialize Coloris color picker
+      // --------------------------------
+      Coloris({
+        clearButton: { show: true, label: 'Wissen' },
+        swatchesOnly: true,
+        selectInput: false,
+        swatches: Object.keys(myColors),
+      });
+
+      // -------------
+      // Set edit mode
+      // -------------
+      const editMode = true;
+      // const editMode = false;
+      if (!editMode) {
+        document.getElementById("navbarMenu").remove();
+      }
+
+      // ------------------
+      // Get data from json
+      // ------------------
+      // werkt voorlopig niet => wordt uit data.js gehaald
+
+      // ------------
+      // Create chart
+      // ------------
+      const chart = $('#chart-container').orgchart({
+        data: datasource, // data.js
+        nodeTemplate: myNodeTemplate, // template.js
+        // direction: 'l2r',
+        toggleSiblingsResp: true,
+        visibleLevel: 2,
+        editMode: editMode,
+        draggable: editMode,
+        createNode: myCreateNodeCallback,
+      });
+
+      // -------------
+      // Set auto save
+      // -------------
+      const autosave = 0;  // milliseconden (0 = geen | 1000 = 1 sec | 300000 = 5 min)
+      // const autosave = 5000;
+      if (editMode && autosave > 0) {
+        // Set interval
+        const intervalSave = setInterval(function () { saveDataSource(chart, true) }, autosave, true); // setInterval(func, delay, arg0) => arg0 = true => silent update without alert
+        // Set status icon
+        document.getElementById("autosave").innerHTML = `<span title="Auto save on" class="material-icons text-success">toggle_on</span>`;
+      }
+
+      // ---------------------
+      // Set searchbar actions
+      // ---------------------
+      // Show/hide search input
+      document.querySelector("#search-icon").addEventListener("click", function () {
+        $("#search-input").toggle(300).trigger("focus").val("");
+        $("#search-icon-clear").toggle(300);
+      });
+      // Get search results
+      document.querySelector("#search-input").addEventListener("keypress", function (e) {
+        if (e.key === 'Enter') {
+          search(chart, e.target.value.trim().toLowerCase());
+        }
+      });
+      // Clear search results
+      document.querySelector("#search-icon-clear").addEventListener("click", function () {
+        chart.refresh();
+        $("#search-input").val("");
+        if ($("#search-noresults").css("display") == "block") $("#search-noresults").toggle(300);
+      });
+
+      // --------------------
+      // Set toolbar actions
+      // --------------------
+      document.querySelectorAll(".btnToolbar").forEach(btn => {
+        setToolbarListener(chart, btn);
+      });
+
+      // -------------------------------------------------------
+      // Event listener for offcanvas menu items (save & export)
+      // -------------------------------------------------------
+      document.querySelectorAll(".btnMenu").forEach(btn => {
+        setOffcanvasMenuListener(chart, btn);
+      });
+
+      // ---------------------------------
+      // Event listener for show-info-icon
+      // ---------------------------------
+      document.querySelectorAll(".show-info-icon").forEach(icon => {
+        setInfoIconListener(chart, icon);
+      });
+
+      // -----------------
+      // Handle node menu
+      // -----------------
+
+      // 1. Show node menu
+      // ------------------
+      document.querySelectorAll(".show-node-menu-icon").forEach(icon => {
+        setNodeMenuIconListener(chart, icon);
+      });
+
+      // 2. Hide node menu on click outside of node menu
+      // -----------------------------------------------
+      window.onclick = function (e) {
+        // console.log(e.target.className);
+        if (e.target.className.includes("fw-light small") || e.target.className.includes("naam") || e.target.className.includes("focused")) {
+          chart.$chart.find('.nodeMenu').addClass('d-none');
+        };
+      }
+
+      // 3. Node menu action buttons
+      // ----------------------------
+      document.querySelectorAll(".btnNodeMenu").forEach(btn => {
+        setNodeMenuActionListener(chart, btn);
+      });
+
+      // ----------------------------------
+      // Handle form submission (Edit node)
+      // ----------------------------------
+      const forms = document.querySelectorAll('.needs-validation')
+      Array.from(forms).forEach(form => {
+        form.addEventListener('submit', event => {
+          event.preventDefault();
+          event.stopPropagation();
+          if (!form.checkValidity()) {
+            form.classList.add('was-validated')
+          }
+          else if (form.checkValidity()) {
+            form.classList.remove('was-validated')
+            handleFormSubmit(chart, form); // zie app.js
+          }
+        }, false)
+      })
+
+
+    });
+
+  </script>
+
+</body>
+
+</html>

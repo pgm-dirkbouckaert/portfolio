@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NT2 Digiboek</title>
+
+    <!-- FAVICON -->
+    <link rel='icon' type='image/png' href='../../img/favicon.png' />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../../css/simple-grid.css">
+    <link rel="stylesheet" href="../../css/mystyle.css">
+
+    <!-- DIGIBOEK OBJECTEN JS -->
+    <script src="../../js/digiboekObjecten.js"></script>
+
+    <script>
+        window.onload = function () {
+            // MANUEEL TE WIJZIGEN VOOR ELKE NIEUWE index.html
+            let arrBoeken = arrBoekenVL;
+
+            // Vanaf hier hoeft er niet manueel gewijzigd te worden
+            // Set divs met boeken
+            var row = document.getElementsByClassName("grid-container")[0];
+            for (var i = 0; i < arrBoeken.length; i++) {
+                let title = arrBoeken[i][1];
+                let page = arrBoeken[i][0] + ".html";
+                let div = document.createElement("div");
+                div.setAttribute("onclick", "window.location.href='" + page + "'");
+                div.innerHTML = title;
+                row.appendChild(div);
+            }
+        }
+        window.addEventListener("contextmenu", function (e) {
+            e.preventDefault();
+        }, true);
+    </script>
+
+</head>
+
+<body>
+
+    <div>
+        <nav>
+            <div class="indexTitle">NT2 DIGIBOEK</div>
+        </nav>
+
+        <div class="indexBreak"></div>
+
+        <div class="divNav">
+            <span class="material-icons pointer" title="Ga naar startpagina"
+                onclick="location.href='../../index.html'">home</span>&nbsp;&nbsp;&nbsp;
+        </div>
+        <div class="grid-container">
+        </div>
+        <br>
+
+    </div>
+
+</body>
+
+</html>

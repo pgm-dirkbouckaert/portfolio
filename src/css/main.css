@@ -1,0 +1,238 @@
+:root {
+  --color-teal: hsl(180, 100%, 25%);
+  --color-white: hsl(0, 0%, 100%);
+  --color-black: hsl(210, 11%, 15%);
+}
+
+/* roboto-300 - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  src: url('../fonts/roboto-v30-latin-300.woff2') format('woff2'),
+    url('../fonts/roboto-v30-latin-300.woff') format('woff');
+}
+
+/* roboto-regular - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/roboto-v30-latin-regular.woff2') format('woff2'),
+    url('../fonts/roboto-v30-latin-regular.woff') format('woff');
+}
+
+/* roboto-500 - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  src: url('../fonts/roboto-v30-latin-500.woff2') format('woff2'),
+    url('../fonts/roboto-v30-latin-500.woff') format('woff');
+}
+
+/* roboto-700 - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/roboto-v30-latin-700.woff2') format('woff2'),
+    url('../fonts/roboto-v30-latin-700.woff') format('woff');
+}
+
+body {
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  background-color: var(--color-teal);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  line-height: 1.1;
+  font-weight: 500;
+  color: var(--color-teal);
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+}
+
+p {
+  font-size: 1.125rem;
+}
+
+strong {
+  font-style: normal;
+  font-weight: 600;
+}
+
+/* UTILITIES */
+.container {
+  width: calc(100% - 2rem);
+  max-width: 55rem;
+  margin: 1rem auto;
+}
+
+.text-white {
+  color: var(--color-white);
+}
+
+/* NAVBAR */
+nav {
+  background-color: var(--color-black);
+  color: hsl(210, 2%, 75%);
+  font-size: 1.1rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+nav ul {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+}
+
+nav img {
+  width: 2rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.4s ease;
+}
+
+nav a.active {
+  color: var(--color-white);
+}
+
+nav a:hover {
+  color: var(--color-white);
+}
+
+/* PROJECTS */
+.projects {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 5rem;
+}
+
+.category {
+  margin: 2rem auto 1rem;
+  color: var(--color-white);
+}
+
+.project-list {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: stretch;
+  gap: 2rem;
+}
+
+.project-card {
+  cursor: pointer;
+  flex: 1 0 12rem;
+  min-width: 12rem;
+  max-width: 12rem;
+  background-color: var(--color-white);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  box-shadow: 2px 4px 6px hsl(0, 0%, 33%);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.project-card:hover {
+  transform: scale(1.05);
+}
+
+@media screen and (min-width: 35rem) {
+  .project-card {
+    flex: 1 0 29%;
+  }
+}
+
+.project-card a {
+  text-decoration: none;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.project-card img {
+  margin: 0 0 0.5rem;
+  width: 8rem;
+  height: 8rem;
+  aspect-ratio: 1/1;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* TOOLTIP */
+.tooltip {
+  position: absolute;
+  width: 100%;
+  min-height: 3.125rem;
+  top: -1.5rem;
+  left: 55%;
+  transform: translateX(-50%);
+  background-color: var(--color-black);
+  color: white;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+
+.tooltip::after {
+  content: '';
+  width: 1rem;
+  height: 1rem;
+  background-color: var(--color-black);
+  transform: rotate(45deg);
+  position: absolute;
+  bottom: -0.3rem;
+  left: 0.3rem;
+}
+.project-card:hover .tooltip {
+  opacity: 1;
+}

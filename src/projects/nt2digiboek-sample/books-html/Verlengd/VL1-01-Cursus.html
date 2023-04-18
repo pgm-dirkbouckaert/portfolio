@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <title>NT2 Digiboek</title>
+
+    <!-- FAVICON -->
+    <link rel="icon" href="../../img/favicon.png">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../../css/mystyle.css">
+
+    <!-- JS CKEDITOR -->
+    <script src="../../ckeditor/ckeditor.js"></script>
+
+    <!-- JS JQUERY -->
+    <script src="../../js/jquery-3.5.1.min.js"></script>
+
+    <!-- JS CANVAS -->
+    <script src="../../js/myCanvas.js"></script>
+
+    <!-- DIGIBOEK JS -->
+    <script src="../../js/digiboekObjecten.js"></script>
+    <script src="../../js/digiboek.js"></script>
+
+    <script>
+        // MANUEEL TE WIJZIGEN VOOR ELK NIEUW HTML-BESTAND
+        var boek = "VL1-01-Cursus"; // = naam van de map, ook opgenomen in digiboekObjecten.js (arrBoeken) 
+        var imgFolder = "../../books-img/Verlengd/" + boek + "/";
+        var numImg = 194; // aantal afbeeldingen in de map
+        var imgExt = ".jpg" // extensie van de afbeeldingen
+        var imgOrientation = "portrait"; // kies uit: portrait of landscape
+        var htmlPrefix = ""; // prefix voor de html-bestanden - optioneel - laat leeg indien niet van toepassing
+        var arrInhoud = arrInhoudVL; // arrInhoud gelijkstellen aan specifieke array uit digiboekObjecten.js
+        var arrBoeken = arrBoekenVL; // arrBoeken gelijkstellen aan specifieke array uit digiboekObjecten.js
+
+        // Vanaf hier hoeft er niet manueel gewijzigd te worden
+        var pageNum = 1;
+        var scale = 1;
+        window.onload = function () {
+            initPage();
+        }
+        window.addEventListener("contextmenu", function (e) {
+            e.preventDefault();
+        }, true);
+    </script>
+
+</head>
+
+<body>
+
+    <nav>
+        <div class="divNav">
+            <span class="material-icons pointer" title="Ga naar startpagina"
+                onclick="location.href='../../index.html'">home</span>&nbsp;&nbsp;&nbsp;
+        </div>
+        <select id="boekenlijst">
+        </select>
+        <select id="inhoudsopgave">
+        </select>
+        <div class="divNav">
+            <span>Pagina:</span>&nbsp;<input id="inputPageNum" type="text" onclick="this.focus();this.select();"
+                autocomplete="off"></input>&nbsp;<span>/</span>&nbsp;<span id="page_count"></span>&nbsp;
+        </div>
+        <div class="divNav">
+            <span class="material-icons pointer" title="Vorige" onclick="loadPreviousPage()">navigate_before</span>&nbsp;
+            <span class="material-icons pointer" title="Volgende" onclick="loadNextPage()">navigate_next</span>&nbsp;&nbsp;
+        </div>
+        <br>
+        <div class="divNav">
+            <span class="material-icons pointer navToolBigger" title="Zoom in" onclick="zoomIn()">zoom_in</span>&nbsp;
+            <span class="material-icons pointer navToolBigger" title="Zoom uit" onclick="zoomOut()">zoom_out</span>&nbsp;&nbsp;&nbsp;
+        </div>
+        <div class="divNav">
+            <span class="material-icons pointer navToolBigger" title="Draai naar rechts" onclick="rotateRight()">rotate_right</span>&nbsp;
+            <span class="material-icons pointer navToolBigger" title="Draai naar links"
+                onclick="rotateLeft()">rotate_left</span>&nbsp;&nbsp;&nbsp;
+        </div>
+        <div class="divNav">
+            <span class="material-icons pointer navToolBigger" title="Toon kladblok"
+                onclick="showModalKladblok()">create</span>&nbsp;&nbsp;&nbsp;
+        </div>
+        <div class="divNav">
+            <span class="material-icons pointer navToolBigger" title="Toon markeertools"
+                onclick="toggleCanvas()">color_lens</span>&nbsp;&nbsp;&nbsp;
+        </div>
+        <div class="divNav">
+            <span class="material-icons pointer navToolBigger" id="zoomFullscreen" title="Open volledig scherm">fullscreen</span>
+        </div>
+    </nav>
+
+    <br><br>
+    <div id="spinner">
+        <img src="../../img/spinner.gif" width="125px">
+    </div>
+
+    <!-- Current image -->
+    <div id="currentImgContainer">
+        <img id="currentImg" src="">
+    </div>
+
+    <!-- Modal Kladblok -->
+    <div id="myModalKladblok" class="modal">
+        <span class="close">&times;</span>
+        <div class="modal-content" id="kladblok" contenteditable="true"></div>
+    </div>
+    <script>
+        CKEDITOR.replace("kladblok");
+    </script>
+
+    <!-- Drawing Tools for canvas -->
+    <div id="drawingTools">
+    </div>
+
+    <br>
+
+</body>
+
+</html>
