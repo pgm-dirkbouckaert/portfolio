@@ -2,6 +2,11 @@
   --color-teal: hsl(180, 100%, 25%);
   --color-white: hsl(0, 0%, 100%);
   --color-black: hsl(210, 11%, 15%);
+  --color-gray: hsl(0, 0%, 50%);
+  --color-error: hsl(0, 100%, 30%);
+  --color-error-bg: hsl(351, 100%, 90%);
+  --color-success: hsl(153, 28%, 28%);
+  --color-success-bg: hsl(153, 31%, 86%);
 }
 
 /* roboto-300 - latin */
@@ -99,6 +104,12 @@ strong {
 
 .text-white {
   color: var(--color-white);
+}
+
+.text-muted {
+  color: var(--color-gray);
+  font-size: 0.9rem;
+  margin: 0.25rem 0;
 }
 
 /* NAVBAR */
@@ -204,12 +215,31 @@ nav a:hover {
   object-position: center;
 }
 
+/* PROJECT DETAILS */
+.project-summary {
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.project-details {
+  margin-bottom: 1rem;
+}
+
+.project-link a {
+  font-size: 2rem;
+  color: var(--color-teal);
+}
+
+.project-link a:hover {
+  opacity: 0.8;
+}
+
 /* TOOLTIP */
 .tooltip {
   position: absolute;
   width: 100%;
   min-height: 3.125rem;
-  top: -1.5rem;
+  top: -1.25rem;
   left: 55%;
   transform: translateX(-50%);
   background-color: var(--color-black);
@@ -233,6 +263,57 @@ nav a:hover {
   bottom: -0.3rem;
   left: 0.3rem;
 }
+
 .project-card:hover .tooltip {
   opacity: 1;
+  top: -1.5rem;
+}
+
+/* MODAL */
+.modal {
+  width: calc(100% - 2rem);
+  max-width: 40rem;
+  min-height: 7rem;
+  background-color: var(--color-white);
+  box-shadow: 2px 4px 6px hsl(0, 0%, 33%);
+  border-radius: 0.5rem;
+  z-index: 10;
+  position: fixed;
+  top: 5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all 0.5s ease-in-out;
+}
+
+.modal.hidden {
+  opacity: 0;
+  top: -22rem;
+}
+
+.modal.error {
+  background-color: var(--color-error-bg);
+  color: var(--color-error);
+}
+
+.modal.success {
+  background-color: var(--color-success-bg);
+  color: var(--color-success);
+}
+
+.btn-close-modal {
+  cursor: pointer;
+  float: right;
+  font-size: 2rem;
+  margin: -0.25rem 0.5rem;
+  color: var(--color-gray);
+  transition: all 0.4s ease;
+}
+
+.btn-close-modal:hover {
+  color: var(--color-black);
+}
+
+.modal-body {
+  padding: 1rem;
+  font-size: 1.1rem;
 }

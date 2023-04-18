@@ -8,14 +8,25 @@
 
     <link rel="shortcut icon" href="images/logo.png" type="image/png" />
 
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/main.css" />
 
     <script src="js/app.js" type="module"></script>
   </head>
   <body>
+    <div class="modal hidden" id="modal">
+      <div class="btn-close-modal" id="btn-close-modal">
+        <i class="fa-solid fa-xmark"></i>
+      </div>
+      <div class="modal-body" id="modal-body"></div>
+    </div>
+
     <nav>
-      <ul id="nav-list"></ul>
+      <ul id="navbar"></ul>
     </nav>
 
     <section class="container projects" id="projects"></section>
