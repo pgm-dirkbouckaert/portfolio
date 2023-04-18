@@ -73,7 +73,7 @@ export const projects = [
     id: 8,
     category: 'PHP & SQL',
     title: 'CVO BIB',
-    image: 'cvogent.png',
+    image: 'cvobib.png',
     link: 'https://cvogent.be/cvobib/',
     summary: 'Bibliotheekapplicatie',
     details: '',
