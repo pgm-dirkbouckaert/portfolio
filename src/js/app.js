@@ -92,13 +92,20 @@ import { navItems, projects } from './data.js';
             type: 'info',
             message: this.renderProjectDetails(project),
           });
+          this.listenForShowPreviousProject();
+          this.listenForShowNextProject();
         });
       }
     },
     renderProjectDetails(project) {
       return `
-        <h3>${project.title}</h3>
-        <div class="text-muted">Categorie: ${project.category}</div>
+        <h3 class="project-title">
+          <a href="${project.url}" target="_blank">
+            ${project.title}
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </h3>
+        <div class="project-category">Categorie: ${project.category}</div>
         <div class="project-summary">${project.summary}</div>
         <div class="project-details">
           <ul>
@@ -106,16 +113,63 @@ import { navItems, projects } from './data.js';
               .split('|')
               .map((item) => `<li>${item.trim()}</li>`)
               .join('')}
+            <li><a href="${
+              project.url
+            }" target="_blank">Bekijk het project</a></li>
           </ul>  
         </div>
-        <div class="project-link">
-          <a href="${
-            project.link
-          }" target="_blank" title="Open in een nieuw venster">
-            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-          </a>
+        ${this.renderProjectDetailsNav(
+          projects.findIndex((p) => p.id === project.id)
+        )}
+      `;
+    },
+    renderProjectDetailsNav(currentIndex) {
+      return `
+        <div class="project-footer-nav">
+          ${
+            currentIndex !== 0
+              ? `<i class="fa-solid fa-angles-left btn-previous" id="btn-previous"
+                    data-previous-index="${currentIndex - 1}"></i>`
+              : '<i>&nbsp;</i>'
+          }
+          ${
+            currentIndex !== projects.length - 1
+              ? `<i class="fa-solid fa-angles-right btn-next" id="btn-next"
+                    data-next-index="${currentIndex + 1}"></i>`
+              : '<i>&nbsp;</i>'
+          }
         </div>
       `;
+    },
+    listenForShowPreviousProject() {
+      const button = document.getElementById('btn-previous');
+      if (button) {
+        button.addEventListener('click', (e) => {
+          const newIndex = parseInt(e.currentTarget.dataset.previousIndex, 10);
+          const newProject = projects[newIndex];
+          this.showModal({
+            type: 'info',
+            message: this.renderProjectDetails(newProject),
+          });
+          this.listenForShowPreviousProject();
+          this.listenForShowNextProject();
+        });
+      }
+    },
+    listenForShowNextProject() {
+      const button = document.getElementById('btn-next');
+      if (button) {
+        button.addEventListener('click', (e) => {
+          const newIndex = parseInt(e.currentTarget.dataset.nextIndex, 10);
+          const newProject = projects[newIndex];
+          this.showModal({
+            type: 'info',
+            message: this.renderProjectDetails(newProject),
+          });
+          this.listenForShowPreviousProject();
+          this.listenForShowNextProject();
+        });
+      }
     },
     /**
      * MODAL
