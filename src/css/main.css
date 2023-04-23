@@ -214,6 +214,95 @@ nav a:hover {
   color: var(--color-white);
 }
 
+/* HOME 
+****************************************/
+.who-am-i {
+  background-color: var(--color-white);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media screen and (min-width: 30rem) {
+  .who-am-i {
+    justify-content: flex-start;
+  }
+}
+
+/* Image */
+.who-am-i img {
+  flex: 1 0 100%;
+  width: 100%;
+  max-width: 10rem;
+}
+
+@media screen and (min-width: 30rem) {
+  .who-am-i img {
+    flex: 0 1 29%;
+    min-width: 12rem;
+  }
+}
+
+/* Title */
+.who-am-i h5 {
+  flex: 1 0 100%;
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+@media screen and (min-width: 30rem) {
+  .who-am-i h5 {
+    flex: 1 0 50%;
+    text-align: left;
+  }
+}
+
+/* Info */
+.who-am-i .info {
+  flex: 0 1 100%;
+  background-color: var(--color-white);
+  border-radius: 0.5rem;
+}
+
+@media screen and (min-width: 30rem) {
+  .who-am-i .info {
+    flex: 1 0 50%;
+  }
+}
+
+@media screen and (min-width: 50rem) {
+  .who-am-i .info {
+    flex: 1 0 65%;
+  }
+}
+
+/* Social */
+.social {
+  margin-top: 1rem;
+  font-size: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 1rem;
+  color: var(--color-teal);
+}
+
+.social a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.technologies {
+  background-color: var(--color-white);
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
 /* PROJECTS 
 ****************************************/
 .projects {

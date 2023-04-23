@@ -6,6 +6,7 @@ import { navItems, projects } from './data.js';
       const pathArr = window.location.pathname.split('/');
       this.path = pathArr[pathArr.length - 1];
       this.ajaxBasePath = '/src';
+      this.host = 'github';
       this.cacheElements();
       this.buildNav();
       this.buildProjects();
@@ -52,9 +53,7 @@ import { navItems, projects } from './data.js';
     renderProjects(categories) {
       return categories
         .map((category) => {
-          const filteredProjects = projects.filter(
-            (p) => p.category === category
-          );
+          const filteredProjects = projects.filter((p) => p.category === category);
           return `
             <h2 class="category">${category}</h2>
             <ul class="project-list">
@@ -116,14 +115,10 @@ import { navItems, projects } from './data.js';
               .split('|')
               .map((item) => `<li>${item.trim()}</li>`)
               .join('')}
-            <li><a href="${
-              project.url
-            }" target="_blank">Bekijk het project</a></li>
+            <li><a href="${project.url}" target="_blank">Bekijk het project</a></li>
           </ul>  
         </div>
-        ${this.renderProjectDetailsNav(
-          projects.findIndex((p) => p.id === project.id)
-        )}
+        ${this.renderProjectDetailsNav(projects.findIndex((p) => p.id === project.id))}
       `;
     },
     renderProjectDetailsNav(currentIndex) {
@@ -182,6 +177,10 @@ import { navItems, projects } from './data.js';
         this.$form.addEventListener('submit', async (e) => {
           e.preventDefault();
           const formData = new FormData(this.$form);
+          if (this.host === 'github') {
+            return (this.$form.innerHTML =
+              'Bedankt voor je bericht. Ik neem zo snel mogelijk contact met jou op.');
+          }
           try {
             const res = await fetch(`${this.ajaxBasePath}/ajax/contact.php`, {
               method: 'POST',
@@ -209,6 +208,10 @@ import { navItems, projects } from './data.js';
             }
           } catch (error) {
             console.error(error);
+            this.showModal({
+              type: 'error',
+              message: 'Sorry, er ging iets fout.',
+            });
           }
         });
       }
