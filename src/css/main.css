@@ -103,7 +103,8 @@ a:hover {
   opacity: 0.9;
 }
 
-/* UTILITIES */
+/* UTILITIES 
+****************************************/
 .container {
   width: calc(100% - 2rem);
   max-width: 55rem;
@@ -120,13 +121,69 @@ a:hover {
   margin: 0.25rem 0;
 }
 
-/* NAVBAR */
+/* MODAL 
+****************************************/
+.modal {
+  width: calc(100% - 2rem);
+  max-width: 38rem;
+  min-height: 7rem;
+  background-color: var(--color-white);
+  box-shadow: 2px 4px 6px hsl(0, 0%, 33%);
+  border-radius: 0.5rem;
+  z-index: 10;
+  position: fixed;
+  top: 5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all 0.5s ease-in-out;
+}
+
+.modal.hidden {
+  opacity: 0;
+  top: -22rem;
+}
+
+.modal.error {
+  background-color: var(--color-error-bg);
+  color: var(--color-error);
+}
+
+.modal.success {
+  background-color: var(--color-success-bg);
+  color: var(--color-success);
+}
+
+.btn-close-modal {
+  cursor: pointer;
+  float: right;
+  position: relative;
+  z-index: 10;
+  width: 2rem;
+  height: 2rem;
+  text-align: center;
+  font-size: 2rem;
+  margin: -0.25rem 0.25rem;
+  color: var(--color-gray);
+  transition: all 0.4s;
+}
+
+.btn-close-modal:hover {
+  color: var(--color-black);
+}
+
+.modal-body {
+  padding: 1rem;
+  font-size: 1.1rem;
+}
+
+/* NAVBAR 
+****************************************/
 nav {
   background-color: var(--color-black);
   color: hsl(210, 2%, 75%);
   font-size: 1.1rem;
   padding: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 nav ul {
@@ -157,7 +214,8 @@ nav a:hover {
   color: var(--color-white);
 }
 
-/* PROJECTS */
+/* PROJECTS 
+****************************************/
 .projects {
   display: flex;
   flex-direction: column;
@@ -223,7 +281,45 @@ nav a:hover {
   object-position: center;
 }
 
-/* PROJECT DETAILS */
+/* TOOLTIP 
+****************************************/
+.tooltip {
+  z-index: 5;
+  position: absolute;
+  width: 100%;
+  min-height: 3.125rem;
+  top: -1.25rem;
+  left: 55%;
+  transform: translateX(-50%);
+  background-color: var(--color-black);
+  color: white;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+
+.tooltip::after {
+  content: '';
+  width: 1rem;
+  height: 1rem;
+  background-color: var(--color-black);
+  transform: rotate(45deg);
+  position: absolute;
+  bottom: -0.3rem;
+  left: 0.3rem;
+}
+
+.project-card:hover .tooltip {
+  opacity: 1;
+  top: -1.5rem;
+}
+
+/* PROJECT DETAILS 
+****************************************/
 .project-title {
   transition: all 0.4s;
 }
@@ -276,92 +372,66 @@ nav a:hover {
   opacity: 0.9;
 }
 
-/* TOOLTIP */
-.tooltip {
-  z-index: 5;
-  position: absolute;
-  width: 100%;
-  min-height: 3.125rem;
-  top: -1.25rem;
-  left: 55%;
-  transform: translateX(-50%);
-  background-color: var(--color-black);
-  color: white;
-  border-radius: 0.5rem;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  transition: all 0.4s ease;
-}
-
-.tooltip::after {
-  content: '';
-  width: 1rem;
-  height: 1rem;
-  background-color: var(--color-black);
-  transform: rotate(45deg);
-  position: absolute;
-  bottom: -0.3rem;
-  left: 0.3rem;
-}
-
-.project-card:hover .tooltip {
-  opacity: 1;
-  top: -1.5rem;
-}
-
-/* MODAL */
-.modal {
+/* FORM 
+****************************************/
+form {
   width: calc(100% - 2rem);
   max-width: 40rem;
-  min-height: 7rem;
-  background-color: var(--color-white);
-  box-shadow: 2px 4px 6px hsl(0, 0%, 33%);
-  border-radius: 0.5rem;
-  z-index: 10;
-  position: fixed;
-  top: 5rem;
-  left: 50%;
-  transform: translateX(-50%);
-  transition: all 0.5s ease-in-out;
-}
-
-.modal.hidden {
-  opacity: 0;
-  top: -22rem;
-}
-
-.modal.error {
-  background-color: var(--color-error-bg);
-  color: var(--color-error);
-}
-
-.modal.success {
-  background-color: var(--color-success-bg);
-  color: var(--color-success);
-}
-
-.btn-close-modal {
-  cursor: pointer;
-  float: right;
-  position: relative;
-  z-index: 10;
-  width: 2rem;
-  height: 2rem;
-  text-align: center;
-  font-size: 2rem;
-  margin: -0.25rem 0.25rem;
-  color: var(--color-gray);
-  transition: all 0.4s;
-}
-
-.btn-close-modal:hover {
-  color: var(--color-black);
-}
-
-.modal-body {
+  margin: 2rem auto;
   padding: 1rem;
-  font-size: 1.1rem;
+  background-color: var(--color-white);
+  border-radius: 0.3125rem;
+}
+
+.form-item {
+  margin-bottom: 2rem;
+}
+
+form label {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.form-item-required {
+  color: hsl(0, 100%, 50%);
+}
+
+form input {
+  width: 100%;
+  padding: 0.25rem;
+  border: none;
+  border-bottom: 1.5px solid var(--color-teal);
+  color: var(--color-teal);
+}
+
+form textarea {
+  width: 100%;
+  border: 1px solid var(--color-teal);
+  color: var(--color-teal);
+  border-radius: 0.3125rem;
+}
+
+form input:focus,
+form textarea:focus {
+  outline: 1px dotted var(--color-teal);
+}
+
+form textarea:focus {
+  border: none;
+  border-bottom: 1px solid var(--color-teal);
+}
+
+.form-btn-submit {
+  width: 100%;
+  padding: 0.5rem;
+  background-color: var(--color-teal);
+  color: var(--color-white);
+  border: none;
+  border-radius: 0.3125rem;
+  cursor: pointer;
+  transition: background-color ease-in-out 0.3s;
+}
+
+.form-btn-submit:hover {
+  background-color: var(--color-black);
 }

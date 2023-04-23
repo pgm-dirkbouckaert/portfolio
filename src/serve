@@ -1,0 +1,16 @@
+#! /usr/bin/bash
+
+# BASH COMMAND TO RUN THIS SCRIPT:
+# cd to the folder where this script is and run:
+#
+# bash <bash-cmd-filename>
+#
+# e.g. if the bash command file is named "serve", run:
+# bash serve
+
+#Get directory => pwd = Print working directory
+path=$(pwd)
+#echo $path
+
+echo "Serving at localhost:3000"
+php -S localhost:3000 -t "$path"

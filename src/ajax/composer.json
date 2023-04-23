@@ -1,0 +1,13 @@
+{
+  "name": "dirk/ajax",
+  "autoload": {
+    "psr-4": {
+      "Ajax\\": "src/"
+    }
+  },
+  "require": {
+    "rakit/validation": "^1.4",
+    "phpmailer/phpmailer": "^6.8",
+    "vlucas/phpdotenv": "^5.5"
+  }
+}

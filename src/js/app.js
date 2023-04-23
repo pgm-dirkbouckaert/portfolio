@@ -5,11 +5,12 @@ import { navItems, projects } from './data.js';
     init() {
       const pathArr = window.location.pathname.split('/');
       this.path = pathArr[pathArr.length - 1];
+      this.ajaxBasePath = '/src';
       this.cacheElements();
       this.buildNav();
       this.buildProjects();
-      this.listenForShowProjectDetails();
       this.listenForCloseModal();
+      this.listenForFormSubmit();
     },
     cacheElements() {
       this.$modal = document.getElementById('modal');
@@ -17,6 +18,7 @@ import { navItems, projects } from './data.js';
       this.$modalBody = document.getElementById('modal-body');
       this.$navbar = document.getElementById('navbar');
       this.$projects = document.getElementById('projects');
+      this.$form = document.getElementById('form');
     },
     /**
      * NAVBAR
@@ -44,6 +46,7 @@ import { navItems, projects } from './data.js';
       if (this.path === 'projects.html') {
         const categories = [...new Set(projects.map((p) => p.category))];
         this.$projects.innerHTML = this.renderProjects(categories);
+        this.listenForShowProjectDetails();
       }
     },
     renderProjects(categories) {
@@ -172,6 +175,56 @@ import { navItems, projects } from './data.js';
       }
     },
     /**
+     * CONTACT FORM
+     */
+    listenForFormSubmit() {
+      if (this.$form) {
+        this.$form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const formData = new FormData(this.$form);
+          try {
+            const res = await fetch(`${this.ajaxBasePath}/ajax/contact.php`, {
+              method: 'POST',
+              mode: 'cors',
+              headers: {
+                // 'Content-Type': 'application/json',
+                Accept: 'application/json',
+              },
+              body: formData,
+            });
+            const json = await res.json();
+            console.log('json:', json);
+            // Handle form errors
+            if (json.errors) {
+              this.showModal({
+                type: 'error',
+                message: this.renderFormErrors(json.errors),
+              });
+              return;
+            }
+            // On success
+            if (json.status && json.status === 200) {
+              this.$form.innerHTML =
+                'Bedankt voor je bericht. Ik neem zo snel mogelijk contact met jou op.';
+            }
+          } catch (error) {
+            console.error(error);
+          }
+        });
+      }
+    },
+    renderFormErrors(errors) {
+      return `
+        <ul>
+          ${errors
+            .map((error) => {
+              return `<li>${error}</li>`;
+            })
+            .join('')}
+        </ul>
+      `;
+    },
+    /**
      * MODAL
      */
     showModal(options) {
@@ -183,6 +236,7 @@ import { navItems, projects } from './data.js';
       if (this.$modal) {
         this.$btnCloseModal.addEventListener('click', (e) => {
           this.$modal.setAttribute('class', 'modal hidden');
+          this.$modalBody.innerHTML = '';
         });
       }
     },
