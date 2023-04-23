@@ -5,6 +5,7 @@ import { navItems, projects } from './data.js';
     init() {
       const pathArr = window.location.pathname.split('/');
       this.path = pathArr[pathArr.length - 1];
+      // this.ajaxBasePath = '';
       this.ajaxBasePath = '/src';
       this.host = 'github';
       this.cacheElements();
@@ -177,10 +178,12 @@ import { navItems, projects } from './data.js';
         this.$form.addEventListener('submit', async (e) => {
           e.preventDefault();
           const formData = new FormData(this.$form);
-          if (this.host === 'github') {
+          // When hosted on GitHub pages: simulate response
+          if (this.host && this.host === 'github') {
             return (this.$form.innerHTML =
               'Bedankt voor je bericht. Ik neem zo snel mogelijk contact met jou op.');
           }
+          // Send email
           try {
             const res = await fetch(`${this.ajaxBasePath}/ajax/contact.php`, {
               method: 'POST',
@@ -192,7 +195,7 @@ import { navItems, projects } from './data.js';
               body: formData,
             });
             const json = await res.json();
-            console.log('json:', json);
+            // console.log('json:', json);
             // Handle form errors
             if (json.errors) {
               this.showModal({
@@ -202,7 +205,7 @@ import { navItems, projects } from './data.js';
               return;
             }
             // On success
-            if (json.status && json.status === 200) {
+            if (json.status && (json.status === 200 || json.status === 202)) {
               this.$form.innerHTML =
                 'Bedankt voor je bericht. Ik neem zo snel mogelijk contact met jou op.';
             }
