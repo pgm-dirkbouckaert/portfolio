@@ -121,6 +121,10 @@ a:hover {
   margin: 0.25rem 0;
 }
 
+.mt-1 {
+  margin-top: 1rem;
+}
+
 /* MODAL 
 ****************************************/
 .modal {

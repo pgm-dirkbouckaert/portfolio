@@ -1,7 +1,6 @@
 export const navItems = [
   { href: 'index.html', text: '<img src="images/logo.png" alt="logo">' },
-  { href: 'index.html', text: 'Home' },
-  { href: 'projects.html', text: 'Projecten' },
+  { href: 'index.html', text: 'Portfolio' },
   { href: 'contact.html', text: 'Contact' },
 ];
 

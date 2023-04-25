@@ -18,6 +18,13 @@
     <script src="js/app.js" type="module"></script>
   </head>
   <body>
+    <div class="modal hidden" id="modal">
+      <div class="btn-close-modal" id="btn-close-modal">
+        <i class="fa-solid fa-xmark"></i>
+      </div>
+      <div class="modal-body" id="modal-body"></div>
+    </div>
+
     <nav>
       <ul id="navbar"></ul>
     </nav>
@@ -29,6 +36,11 @@
         <div>
           Programmeren voor het web is mijn passie. Vroeger een hobby, nu een opleiding
           Graduaat Programmeren aan Arteveldehogeschool.
+        </div>
+        <div class="mt-1">
+          Je kan bij mij terecht voor het bouwen van websites en webapplicaties met
+          technologieën als HTML, CSS, Javascript, PHP, MYSQL, NodeJS, ExpressJS, React,
+          Google Apps Script, ... <br /><br />
         </div>
         <div class="social">
           <a href="https://github.com/pgm-dirkbouckaert" title="GitHub" target="_blank">
@@ -45,14 +57,6 @@
       </div>
     </section>
 
-    <section class="container technologies">
-      <div class="info">
-        Je kan bij mij terecht voor het bouwen van websites en webapplicaties met
-        technologieën als HTML, CSS, Javascript, PHP, MYSQL, NodeJS, ExpressJS, React,
-        Google Apps Script, ... <br /><br />
-        Kijk bij <a href="projects.html">Projecten</a> om een idee te krijgen wat je van
-        mij mag verwachten.
-      </div>
-    </section>
+    <section class="container projects" id="projects"></section>
   </body>
 </html>

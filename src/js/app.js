@@ -45,7 +45,7 @@ import { navItems, projects } from './data.js';
      * PROJECTS
      */
     buildProjects() {
-      if (this.path === 'projects.html') {
+      if (this.path === 'index.html') {
         const categories = [...new Set(projects.map((p) => p.category))];
         this.$projects.innerHTML = this.renderProjects(categories);
         this.listenForShowProjectDetails();
