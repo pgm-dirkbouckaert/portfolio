@@ -3,6 +3,7 @@
   --color-white: hsl(0, 0%, 100%);
   --color-black: hsl(210, 11%, 15%);
   --color-gray: hsl(0, 0%, 50%);
+  --color-gray-light: hsl(0, 0%, 90%);
   --color-error: hsl(0, 100%, 30%);
   --color-error-bg: hsl(351, 100%, 90%);
   --color-success: hsl(153, 28%, 28%);
@@ -53,7 +54,6 @@ body {
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: 400;
-  background-color: var(--color-teal);
 }
 
 h1,
@@ -183,8 +183,13 @@ a:hover {
 /* NAVBAR 
 ****************************************/
 nav {
-  background-color: var(--color-black);
-  color: hsl(210, 2%, 75%);
+  width: calc(100% - 2rem);
+  max-width: 55rem;
+  margin: 1rem auto;
+  border: 1px solid var(--color-gray-light);
+  border-radius: 0.5rem;
+  box-shadow: 2px 4px 6px var(--color-gray-light);
+  color: var(--color-gray);
   font-size: 1.1rem;
   padding: 1rem;
   margin-bottom: 2rem;
@@ -211,78 +216,38 @@ nav a {
 }
 
 nav a.active {
-  color: var(--color-white);
+  color: var(--color-teal);
 }
 
 nav a:hover {
-  color: var(--color-white);
+  color: var(--color-black);
+}
+
+body.modal-active nav {
+  opacity: 0.5;
 }
 
 /* HOME 
 ****************************************/
 .who-am-i {
-  background-color: var(--color-white);
-  border-radius: 0.5rem;
   padding: 1rem;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
+  border: 1px solid var(--color-gray-light);
+  border-radius: 0.5rem;
+  box-shadow: 2px 4px 6px var(--color-gray-light);
 }
 
-@media screen and (min-width: 30rem) {
-  .who-am-i {
-    justify-content: flex-start;
-  }
-}
-
-/* Image */
-.who-am-i img {
-  flex: 1 0 100%;
-  width: 100%;
-  max-width: 10rem;
-}
-
-@media screen and (min-width: 30rem) {
-  .who-am-i img {
-    flex: 0 1 29%;
-    min-width: 12rem;
-  }
+body.modal-active .who-am-i {
+  opacity: 0.5;
 }
 
 /* Title */
 .who-am-i h5 {
-  flex: 1 0 100%;
-  margin-top: -0.5rem;
   margin-bottom: 1rem;
-  text-align: center;
-}
-
-@media screen and (min-width: 30rem) {
-  .who-am-i h5 {
-    flex: 1 0 50%;
-    text-align: left;
-  }
 }
 
 /* Info */
 .who-am-i .info {
-  flex: 0 1 100%;
-  background-color: var(--color-white);
-  border-radius: 0.5rem;
-}
-
-@media screen and (min-width: 30rem) {
-  .who-am-i .info {
-    flex: 1 0 50%;
-  }
-}
-
-@media screen and (min-width: 50rem) {
-  .who-am-i .info {
-    flex: 1 0 65%;
-  }
+  margin-top: 1rem;
 }
 
 /* Social */
@@ -301,10 +266,8 @@ nav a:hover {
   text-decoration: none;
 }
 
-.technologies {
-  background-color: var(--color-white);
-  border-radius: 0.5rem;
-  padding: 1rem;
+.social a:hover {
+  transform: scale(1.05);
 }
 
 /* PROJECTS 
@@ -316,9 +279,13 @@ nav a:hover {
   gap: 1rem;
 }
 
+body.modal-active .projects {
+  opacity: 0.5;
+}
+
 .category {
   margin: 1rem auto;
-  color: var(--color-white);
+  color: var(--color-teal);
 }
 
 .project-list {
@@ -337,11 +304,11 @@ nav a:hover {
   flex: 1 0 12rem;
   min-width: 12rem;
   max-width: 12rem;
-  background-color: var(--color-white);
   padding: 1rem;
+  border: 1px solid var(--color-gray-light);
   border-radius: 0.5rem;
+  box-shadow: 2px 4px 6px var(--color-gray-light);
   text-align: center;
-  box-shadow: 2px 4px 6px hsl(0, 0%, 33%);
   transition: all 0.3s ease;
   position: relative;
 }
@@ -468,12 +435,12 @@ nav a:hover {
 /* FORM 
 ****************************************/
 form {
-  width: calc(100% - 2rem);
-  max-width: 40rem;
+  width: 100%;
   margin: 2rem auto;
-  padding: 1rem;
-  background-color: var(--color-white);
+  padding: 2rem;
+  border: 1px solid var(--color-gray-light);
   border-radius: 0.3125rem;
+  box-shadow: 2px 4px 6px var(--color-gray-light);
 }
 
 .form-item {

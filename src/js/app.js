@@ -15,6 +15,7 @@ import { navItems, projects } from './data.js';
       this.listenForFormSubmit();
     },
     cacheElements() {
+      this.$body = document.body;
       this.$modal = document.getElementById('modal');
       this.$btnCloseModal = document.getElementById('btn-close-modal');
       this.$modalBody = document.getElementById('modal-body');
@@ -237,12 +238,14 @@ import { navItems, projects } from './data.js';
       this.$modalBody.innerHTML = options.message;
       this.$modal.classList.add(options.type);
       this.$modal.classList.remove('hidden');
+      this.$body.classList.add('modal-active');
     },
     listenForCloseModal() {
       if (this.$modal) {
         this.$btnCloseModal.addEventListener('click', (e) => {
           this.$modal.setAttribute('class', 'modal hidden');
           this.$modalBody.innerHTML = '';
+          this.$body.classList.remove('modal-active');
         });
       }
     },
