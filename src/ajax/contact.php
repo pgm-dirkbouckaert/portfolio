@@ -67,8 +67,8 @@ foreach ($formData as $key => $value) {
   $htmlBody .= "<div><strong>{$key}</strong>: {$value}</div>";
 }
 
-// Send email with PHPMailer
-// -------------------------
+// Send email with PHPMailer (to Mailtrap)
+// ---------------------------------------
 // $phpmailer = new PHPMailer(true); // passing `true` enables exceptions
 // // Server settings
 // $phpmailer->isSMTP();
@@ -96,10 +96,10 @@ foreach ($formData as $key => $value) {
 //   // echo json_encode(["errors" => [$phpmailer->ErrorInfo]]);
 // }
 
-// Send email with SendGrid
-// -------------------------
+// Send email with SendGrid (to my personal account)
+// -------------------------------------------------
 $email = new Mail();
-$email->setFrom("diboma@gmail.com", "Dirk Bouckaert");
+$email->setFrom("support@ileren.be", "iLeren Support");
 $email->setSubject("A message from your portfolio website");
 $email->addTo("diboma@gmail.com", "Dirk Bouckaert");
 $email->addContent("text/html", $htmlBody);
