@@ -1,9 +1,12 @@
 :root {
+  --color-body-bg: hsl(43, 50%, 99%);
   --color-teal: hsl(180, 100%, 25%);
   --color-white: hsl(0, 0%, 100%);
   --color-black: hsl(210, 11%, 15%);
   --color-gray: hsl(0, 0%, 50%);
   --color-gray-light: hsl(0, 0%, 90%);
+  --color-gold: hsl(43, 15%, 55%);
+  --color-gold-light: hsl(43, 25%, 75%);
   --color-error: hsl(0, 100%, 30%);
   --color-error-bg: hsl(351, 100%, 90%);
   --color-success: hsl(153, 28%, 28%);
@@ -54,6 +57,18 @@ body {
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: 400;
+  background-color: var(--color-body-bg);
+}
+
+::-moz-selection {
+  /* Code for Firefox */
+  color: var(--color-white);
+  background: var(--color-teal);
+}
+
+::selection {
+  color: var(--color-white);
+  background: var(--color-teal);
 }
 
 h1,
@@ -167,12 +182,12 @@ a:hover {
   text-align: center;
   font-size: 2rem;
   margin: -0.25rem 0.25rem;
-  color: var(--color-gray);
+  color: var(--color-gold-light);
   transition: all 0.4s;
 }
 
 .btn-close-modal:hover {
-  color: var(--color-black);
+  color: var(--color-teal);
 }
 
 .modal-body {
@@ -189,10 +204,15 @@ nav {
   border: 1px solid var(--color-gray-light);
   border-radius: 0.5rem;
   box-shadow: 2px 4px 6px var(--color-gray-light);
-  color: var(--color-gray);
+  background-color: var(--color-white);
+  color: var(--color-gold);
   font-size: 1.1rem;
   padding: 1rem;
   margin-bottom: 2rem;
+}
+
+body.modal-active nav {
+  opacity: 0.5;
 }
 
 nav ul {
@@ -205,32 +225,72 @@ nav ul {
   gap: 1rem;
 }
 
-nav img {
-  width: 2rem;
-}
-
 nav a {
   text-decoration: none;
   color: inherit;
   transition: all 0.4s ease;
 }
 
+nav a::after {
+  content: '';
+  display: block;
+  width: 25%;
+  height: 2px;
+  background-color: var(--color-teal);
+  margin-left: -7%;
+  opacity: 0;
+  transition: all 0.4s;
+}
+
 nav a.active {
   color: var(--color-teal);
 }
 
-nav a:hover {
-  color: var(--color-black);
+nav a.active::after,
+nav a:hover::after {
+  margin-left: 0;
+  opacity: 1;
 }
 
-body.modal-active nav {
-  opacity: 0.5;
+nav a:hover {
+  color: var(--color-teal);
+}
+
+nav li:first-child {
+  background-color: var(--color-teal);
+  padding: 0.5rem;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+nav li:first-child a {
+  color: white;
+}
+
+nav li:first-child a:hover {
+  color: white;
+  opacity: 1;
+  transform: rotate(-15deg);
+}
+
+nav li:first-child a::after {
+  opacity: 0;
+}
+
+nav li:first-child a:hover::after {
+  opacity: 0;
 }
 
 /* HOME 
 ****************************************/
 .who-am-i {
   padding: 1rem;
+  background-color: var(--color-white);
   border: 1px solid var(--color-gray-light);
   border-radius: 0.5rem;
   box-shadow: 2px 4px 6px var(--color-gray-light);
@@ -267,7 +327,8 @@ body.modal-active .who-am-i {
 }
 
 .social a:hover {
-  transform: scale(1.05);
+  /* transform: scale(1.05); */
+  transform: rotate(-15deg);
 }
 
 /* PROJECTS 
@@ -305,6 +366,7 @@ body.modal-active .projects {
   min-width: 12rem;
   max-width: 12rem;
   padding: 1rem;
+  background-color: var(--color-white);
   border: 1px solid var(--color-gray-light);
   border-radius: 0.5rem;
   box-shadow: 2px 4px 6px var(--color-gray-light);
@@ -351,7 +413,7 @@ body.modal-active .projects {
   top: -1.25rem;
   left: 55%;
   transform: translateX(-50%);
-  background-color: var(--color-black);
+  background-color: var(--color-teal);
   color: white;
   border-radius: 0.5rem;
   display: flex;
@@ -366,7 +428,7 @@ body.modal-active .projects {
   content: '';
   width: 1rem;
   height: 1rem;
-  background-color: var(--color-black);
+  background-color: var(--color-teal);
   transform: rotate(45deg);
   position: absolute;
   bottom: -0.3rem;
@@ -412,6 +474,10 @@ body.modal-active .projects {
   margin-bottom: 1rem;
 }
 
+.project-details a {
+  color: var(--color-teal);
+}
+
 .project-footer-nav {
   font-size: 1.5rem;
   color: var(--color-teal);
@@ -429,7 +495,7 @@ body.modal-active .projects {
 
 .btn-previous:hover,
 .btn-next:hover {
-  opacity: 0.9;
+  opacity: 0.8;
 }
 
 /* FORM 
@@ -437,7 +503,9 @@ body.modal-active .projects {
 form {
   width: 100%;
   margin: 2rem auto;
+  margin-bottom: 5rem;
   padding: 2rem;
+  background-color: var(--color-white);
   border: 1px solid var(--color-gray-light);
   border-radius: 0.3125rem;
   box-shadow: 2px 4px 6px var(--color-gray-light);
@@ -493,5 +561,8 @@ form textarea:focus {
 }
 
 .form-btn-submit:hover {
-  background-color: var(--color-black);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-teal);
+  color: var(--color-teal);
+  font-weight: 500;
 }

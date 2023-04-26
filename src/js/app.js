@@ -5,6 +5,8 @@ import { navItems, projects } from './data.js';
     init() {
       const pathArr = window.location.pathname.split('/');
       this.path = pathArr[pathArr.length - 1];
+      if (this.path == '') this.path = 'index.html';
+      console.log('this.path:', this.path);
       // this.ajaxBasePath = '';
       this.ajaxBasePath = '/src';
       this.host = 'github';
