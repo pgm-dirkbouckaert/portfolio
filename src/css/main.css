@@ -3,6 +3,7 @@
   --color-teal: hsl(180, 100%, 25%);
   --color-white: hsl(0, 0%, 100%);
   --color-black: hsl(210, 11%, 15%);
+  --color-gray-dark: hsl(0, 0%, 33%);
   --color-gray: hsl(0, 0%, 50%);
   --color-gray-light: hsl(0, 0%, 90%);
   --color-gold: hsl(43, 15%, 55%);
@@ -147,7 +148,7 @@ a:hover {
   max-width: 38rem;
   min-height: 7rem;
   background-color: var(--color-white);
-  box-shadow: 2px 4px 6px hsl(0, 0%, 33%);
+  box-shadow: 2px 4px 6px var(--color-gray-dark);
   border-radius: 0.5rem;
   z-index: 10;
   position: fixed;
@@ -338,6 +339,7 @@ body.modal-active .who-am-i {
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+  margin-bottom: 5rem;
 }
 
 body.modal-active .projects {
@@ -410,10 +412,11 @@ body.modal-active .projects {
   position: absolute;
   width: 100%;
   min-height: 3.125rem;
-  top: -1.25rem;
+  top: -2rem;
   left: 55%;
   transform: translateX(-50%);
   background-color: var(--color-teal);
+  box-shadow: 2px 4px 6px var(--color-gray-dark);
   color: white;
   border-radius: 0.5rem;
   display: flex;
@@ -437,7 +440,7 @@ body.modal-active .projects {
 
 .project-card:hover .tooltip {
   opacity: 1;
-  top: -1.5rem;
+  top: -3rem;
 }
 
 /* PROJECT DETAILS 
