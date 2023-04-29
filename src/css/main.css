@@ -210,12 +210,17 @@ nav {
   font-size: 1.1rem;
   padding: 1rem;
   margin-bottom: 2rem;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
 }
 
 body.modal-active nav {
   opacity: 0.5;
 }
 
+/* Nav items */
 nav ul {
   list-style: none;
   padding-left: 0;
@@ -287,6 +292,14 @@ nav li:first-child a:hover::after {
   opacity: 0;
 }
 
+/* Language selector */
+nav .choose-language {
+  border: none;
+  background-color: inherit;
+  color: var(--color-gold);
+  font-size: 0.95rem;
+}
+
 /* HOME 
 ****************************************/
 .who-am-i {
@@ -299,6 +312,11 @@ nav li:first-child a:hover::after {
 
 body.modal-active .who-am-i {
   opacity: 0.5;
+}
+
+.info span {
+  display: block;
+  margin-bottom: 1rem;
 }
 
 /* Title */
@@ -524,7 +542,7 @@ form label {
 }
 
 .form-item-required {
-  color: hsl(0, 100%, 50%);
+  color: var(--color-teal);
 }
 
 form input {
