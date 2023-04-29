@@ -1,4 +1,11 @@
-import { navItems, projects } from './data.js';
+import {
+  navItems,
+  info,
+  projects,
+  contactFormInputs,
+  contacFormLabels,
+  contactFormMessages,
+} from './data.js';
 
 (() => {
   const app = {
@@ -6,13 +13,17 @@ import { navItems, projects } from './data.js';
       const pathArr = window.location.pathname.split('/');
       this.path = pathArr[pathArr.length - 1];
       if (this.path == '') this.path = 'index.html';
-      console.log('this.path:', this.path);
-      // this.ajaxBasePath = '';
-      this.ajaxBasePath = '/src';
+      this.ajaxBasePath = '';
+      // this.ajaxBasePath = '/src';
       this.host = 'github';
+      this.language = null;
       this.cacheElements();
+      this.getLanguage();
       this.buildNav();
+      this.buildInfo();
       this.buildProjects();
+      this.buildContactForm();
+      this.listenForChangeLanguage();
       this.listenForCloseModal();
       this.listenForFormSubmit();
     },
@@ -21,9 +32,36 @@ import { navItems, projects } from './data.js';
       this.$modal = document.getElementById('modal');
       this.$btnCloseModal = document.getElementById('btn-close-modal');
       this.$modalBody = document.getElementById('modal-body');
+      this.$chooseLanguage = document.getElementById('choose-language');
       this.$navbar = document.getElementById('navbar');
+      this.$info = document.getElementById('info');
       this.$projects = document.getElementById('projects');
       this.$form = document.getElementById('form');
+    },
+    /**
+     * GET LANGUAGE
+     */
+    getLanguage() {
+      this.language = localStorage.getItem('language');
+      if (this.language) this.$chooseLanguage.value = this.language;
+      else {
+        this.language = this.$chooseLanguage.value;
+        localStorage.setItem('language', this.language);
+      }
+    },
+    listenForChangeLanguage() {
+      this.$chooseLanguage.addEventListener('change', (e) => {
+        e.preventDefault();
+        const newLang = e.currentTarget.value;
+        localStorage.setItem('language', newLang);
+        this.language = newLang;
+        if (this.path === 'index.html') {
+          this.buildInfo();
+          this.buildProjects();
+        } else if (this.path === 'contact.html') {
+          this.buildContactForm();
+        }
+      });
     },
     /**
      * NAVBAR
@@ -45,11 +83,19 @@ import { navItems, projects } from './data.js';
         .join('');
     },
     /**
+     * INFO
+     */
+    buildInfo() {
+      if (this.path === 'index.html') {
+        this.$info.innerHTML = info[this.language];
+      }
+    },
+    /**
      * PROJECTS
      */
     buildProjects() {
       if (this.path === 'index.html') {
-        const categories = [...new Set(projects.map((p) => p.category))];
+        const categories = [...new Set(projects.map((p) => p[this.language].category))];
         this.$projects.innerHTML = this.renderProjects(categories);
         this.listenForShowProjectDetails();
       }
@@ -57,7 +103,9 @@ import { navItems, projects } from './data.js';
     renderProjects(categories) {
       return categories
         .map((category) => {
-          const filteredProjects = projects.filter((p) => p.category === category);
+          const filteredProjects = projects.filter(
+            (p) => p[this.language].category === category
+          );
           return `
             <h2 class="category">${category}</h2>
             <ul class="project-list">
@@ -65,10 +113,10 @@ import { navItems, projects } from './data.js';
                 .map((project) => {
                   return `
                   <li class="project-card">
-                    <div class="tooltip">${project.summary}</div>
+                    <div class="tooltip">${project[this.language].summary}</div>
                     <a href="" data-project-id="${project.id}">
                       <img src="images/${project.image}" alt="logo" />
-                      <h5>${project.title.replace('NT2', 'NT2<br>')}</h5>
+                      <h5>${project[this.language].title.replace('NT2', 'NT2<br>')}</h5>
                     </a>
                   </li>`;
                 })
@@ -107,19 +155,22 @@ import { navItems, projects } from './data.js';
       return `
         <h3 class="project-title">
           <a href="${project.url}" target="_blank">
-            ${project.title}
+            ${project[this.language].title}
             <i class="fa-solid fa-arrow-up-right-from-square"></i>
           </a>
         </h3>
-        <div class="project-category">Categorie: ${project.category}</div>
-        <div class="project-summary">${project.summary}</div>
+        <div class="project-category">Categorie: ${project[this.language].category}</div>
+        <div class="project-summary">${project[this.language].summary}</div>
         <div class="project-details">
           <ul>
-            ${project.details
+            ${project[this.language].details
               .split('|')
               .map((item) => `<li>${item.trim()}</li>`)
               .join('')}
-            <li><a href="${project.url}" target="_blank">Bekijk het project</a></li>
+            <li>
+              <a href="${project.url}" target="_blank">${project[this.language].linkText}
+              </a>
+            </li>
           </ul>  
         </div>
         ${this.renderProjectDetailsNav(projects.findIndex((p) => p.id === project.id))}
@@ -176,6 +227,46 @@ import { navItems, projects } from './data.js';
     /**
      * CONTACT FORM
      */
+    buildContactForm() {
+      if (this.path === 'contact.html') {
+        this.$form.innerHTML = this.renderContactForm(contactFormInputs);
+      }
+    },
+    renderContactForm(inputs) {
+      return inputs
+        .map((input) => {
+          switch (input.type) {
+            case 'text':
+            case 'email':
+              return `
+                <div class="form-item">
+                  <label for="${input.name}"> 
+                    ${contacFormLabels[input.name][this.language]} 
+                    ${input.required ? `<span class="form-item-required">*</span>` : ''} 
+                  </label>
+                  <input type="${input.type}" name="${input.name}" id="${input.name}" 
+                        ${input.required ? 'required' : ''} />
+                </div>`;
+            case 'textarea':
+              return `
+                <div class="form-item">
+                  <label for="${input.name}">
+                    ${contacFormLabels[input.name][this.language]} 
+                    ${input.required ? `<span class="form-item-required">*</span>` : ''} 
+                  </label>
+                  <textarea name="${input.name}" id="${input.name}" 
+                    cols="30" rows="7" 
+                    ${input.required ? 'required' : ''}></textarea>
+                </div>`;
+            case 'submit':
+              return `
+                <button type="submit" class="form-btn-submit">
+                  ${contacFormLabels[input.name][this.language]}
+                </button>`;
+          }
+        })
+        .join('');
+    },
     listenForFormSubmit() {
       if (this.$form) {
         this.$form.addEventListener('submit', async (e) => {
@@ -183,8 +274,7 @@ import { navItems, projects } from './data.js';
           const formData = new FormData(this.$form);
           // When hosted on GitHub pages: simulate response
           if (this.host && this.host === 'github') {
-            return (this.$form.innerHTML =
-              'Bedankt voor je bericht. Ik neem zo snel mogelijk contact met jou op.');
+            return (this.$form.innerHTML = contactFormMessages.success[this.language]);
           }
           // Send email
           try {
@@ -209,14 +299,13 @@ import { navItems, projects } from './data.js';
             }
             // On success
             if (json.status && (json.status === 200 || json.status === 202)) {
-              this.$form.innerHTML =
-                'Bedankt voor je bericht. Ik neem zo snel mogelijk contact met jou op.';
+              this.$form.innerHTML = contactFormMessages.success[this.language];
             }
           } catch (error) {
             console.error(error);
             this.showModal({
               type: 'error',
-              message: 'Sorry, er ging iets fout.',
+              message: contactFormMessages.error[this.language],
             });
           }
         });

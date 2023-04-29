@@ -10,7 +10,7 @@
 
 #Get directory => pwd = Print working directory
 path=$(pwd)
-#echo $path
+# echo $path
 
 echo "Serving at localhost:3000"
 php -S localhost:3000 -t "$path"
