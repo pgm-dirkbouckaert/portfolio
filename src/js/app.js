@@ -159,7 +159,7 @@ import {
             <i class="fa-solid fa-arrow-up-right-from-square"></i>
           </a>
         </h3>
-        <div class="project-category">Categorie: ${project[this.language].category}</div>
+        <div class="project-category">${project[this.language].category}</div>
         <div class="project-summary">${project[this.language].summary}</div>
         <div class="project-details">
           <ul>
