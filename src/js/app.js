@@ -5,6 +5,8 @@ import { navItems, projects } from './data.js';
     init() {
       const pathArr = window.location.pathname.split('/');
       this.path = pathArr[pathArr.length - 1];
+      if (this.path == '') this.path = 'index.html';
+      console.log('this.path:', this.path);
       // this.ajaxBasePath = '';
       this.ajaxBasePath = '/src';
       this.host = 'github';
@@ -15,6 +17,7 @@ import { navItems, projects } from './data.js';
       this.listenForFormSubmit();
     },
     cacheElements() {
+      this.$body = document.body;
       this.$modal = document.getElementById('modal');
       this.$btnCloseModal = document.getElementById('btn-close-modal');
       this.$modalBody = document.getElementById('modal-body');
@@ -45,7 +48,7 @@ import { navItems, projects } from './data.js';
      * PROJECTS
      */
     buildProjects() {
-      if (this.path === 'projects.html') {
+      if (this.path === 'index.html') {
         const categories = [...new Set(projects.map((p) => p.category))];
         this.$projects.innerHTML = this.renderProjects(categories);
         this.listenForShowProjectDetails();
@@ -237,12 +240,14 @@ import { navItems, projects } from './data.js';
       this.$modalBody.innerHTML = options.message;
       this.$modal.classList.add(options.type);
       this.$modal.classList.remove('hidden');
+      this.$body.classList.add('modal-active');
     },
     listenForCloseModal() {
       if (this.$modal) {
         this.$btnCloseModal.addEventListener('click', (e) => {
           this.$modal.setAttribute('class', 'modal hidden');
           this.$modalBody.innerHTML = '';
+          this.$body.classList.remove('modal-active');
         });
       }
     },
