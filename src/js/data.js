@@ -12,7 +12,7 @@ export const info = {
        Graduate Programming at Arteveldehogeschool (Ghent, Belgium).
      </span>
      <span>
-       I am familiar with technologies such as HTML, CSS, Javascript, PHP, MYSQL,
+       I am familiar with technologies such as HTML, CSS, Bootstrap, Javascript, PHP, MYSQL,
        NodeJS, ExpressJS, React, Google Apps Script, ...
      </span>`,
   nl: `
@@ -21,7 +21,7 @@ export const info = {
       Graduaat Programmeren aan Arteveldehogeschool (Gent, België).
     </span>
     <span>
-      Ik ben vertrouwd met technologieën als HTML, CSS, Javascript, PHP, MYSQL,
+      Ik ben vertrouwd met technologieën als HTML, CSS, Bootstrap, Javascript, PHP, MYSQL,
       NodeJS, ExpressJS, React, Google Apps Script, ...
     </span>`,
 };
@@ -34,6 +34,7 @@ export const projects = [
     nl: {
       linkText: 'Bekijk het project',
       category: 'HTML/CSS/JS',
+      categoryIcons: ['html.png', 'css.png', 'bootstrap.png', 'js.png', 'jquery.png'],
       title: 'iLeren',
       summary: 'Edutools en online apps',
       details: `Website met educatieve online tools.
@@ -43,6 +44,7 @@ export const projects = [
     en: {
       linkText: 'View the project',
       category: 'HTML/CSS/JS',
+      categoryIcons: ['html.png', 'css.png', 'bootstrap.png', 'js.png', 'jquery.png'],
       title: 'iLearning',
       summary: 'Edutools and online apps',
       details: `Website with educational online tools.
@@ -57,6 +59,7 @@ export const projects = [
     nl: {
       linkText: 'Bekijk het project',
       category: 'HTML/CSS/JS',
+      categoryIcons: ['html.png', 'css.png', 'bootstrap.png', 'js.png'],
       title: 'Schuilplaats',
       summary: 'Muziekstreaming',
       details: `Website waarop online muziek gestreamd wordt.
@@ -67,6 +70,7 @@ export const projects = [
     en: {
       linkText: 'View the project',
       category: 'HTML/CSS/JS',
+      categoryIcons: ['html.png', 'css.png', 'bootstrap.png', 'js.png'],
       title: 'Hiding Place',
       summary: 'Music streaming',
       details: `Website with online music streaming.
@@ -82,6 +86,7 @@ export const projects = [
     nl: {
       linkText: 'Bekijk het project',
       category: 'HTML/CSS/JS',
+      categoryIcons: ['html.png', 'css.png', 'bootstrap.png', 'js.png'],
       title: 'Grammatica',
       summary: 'Grammatica voor anderstaligen',
       details: `Website met een online grammatica voor anderstalligen.
@@ -91,6 +96,7 @@ export const projects = [
     en: {
       linkText: 'View the project',
       category: 'HTML/CSS/JS',
+      categoryIcons: ['html.png', 'css.png', 'bootstrap.png', 'js.png'],
       title: 'Grammar',
       summary: 'Grammar for Dutch as a second language',
       details: `Website with an online Dutch grammar for non-native speakers.
@@ -105,6 +111,7 @@ export const projects = [
     nl: {
       linkText: 'Bekijk het project',
       category: 'HTML/CSS/JS',
+      categoryIcons: ['html.png', 'css.png', 'bootstrap.png', 'js.png', 'jquery.png'],
       title: 'Digiboek',
       summary: 'Online handboeken',
       details: `Digiboek voor de leerkrachten van CVO GENT. 
@@ -115,6 +122,7 @@ export const projects = [
     en: {
       linkText: 'View the project',
       category: 'HTML/CSS/JS',
+      categoryIcons: ['html.png', 'css.png', 'bootstrap.png', 'js.png', 'jquery.png'],
       title: 'Digibook',
       summary: "Online teachers' books",
       details: `Digital books for the teachers of CVO GENT.
@@ -130,6 +138,14 @@ export const projects = [
     nl: {
       linkText: 'Bekijk het project',
       category: 'PHP & SQL',
+      categoryIcons: [
+        'php.png',
+        'sql.png',
+        'html.png',
+        'css.png',
+        'bootstrap.png',
+        'js.png',
+      ],
       title: 'Mimosa',
       summary: 'Fotogallerij',
       details: `Op deze website wordt een fotogallerij aangeboden.
@@ -138,6 +154,14 @@ export const projects = [
     en: {
       linkText: 'View the project',
       category: 'PHP & SQL',
+      categoryIcons: [
+        'php.png',
+        'sql.png',
+        'html.png',
+        'css.png',
+        'bootstrap.png',
+        'js.png',
+      ],
       title: 'Mimosa',
       summary: 'Photo gallery',
       details: `This website presents a photo gallery of jewellery.
@@ -151,6 +175,14 @@ export const projects = [
     nl: {
       linkText: 'Bekijk het project',
       category: 'PHP & SQL',
+      categoryIcons: [
+        'php.png',
+        'sql.png',
+        'html.png',
+        'css.png',
+        'bootstrap.png',
+        'js.png',
+      ],
       title: 'Farmstand',
       summary: 'Oefenproject met eigen MVC-framework.',
       details: `Gebaseerd op de NodeJS versie van Colt Steele.
@@ -160,6 +192,14 @@ export const projects = [
     en: {
       linkText: 'View the project',
       category: 'PHP & SQL',
+      categoryIcons: [
+        'php.png',
+        'sql.png',
+        'html.png',
+        'css.png',
+        'bootstrap.png',
+        'js.png',
+      ],
       title: 'Farm stand',
       summary: 'Training project with my own MVC framework.',
       details: `Based on Colt Steele's NodeJS version.
@@ -174,6 +214,14 @@ export const projects = [
     nl: {
       linkText: 'Bekijk het project',
       category: 'PHP & SQL',
+      categoryIcons: [
+        'php.png',
+        'sql.png',
+        'html.png',
+        'css.png',
+        'bootstrap.png',
+        'js.png',
+      ],
       title: 'CVO Voeding',
       summary: 'Oefenproject met eigen MVC-framework.',
       details: `Ontwerp voor CVO GENT.
@@ -183,6 +231,14 @@ export const projects = [
     en: {
       linkText: 'View the project',
       category: 'PHP & SQL',
+      categoryIcons: [
+        'php.png',
+        'sql.png',
+        'html.png',
+        'css.png',
+        'bootstrap.png',
+        'js.png',
+      ],
       title: 'CVO Food',
       summary: 'Training project with my own MVC framework.',
       details: `Design for CVO GENT.
@@ -197,6 +253,14 @@ export const projects = [
     nl: {
       linkText: 'Bekijk het project',
       category: 'PHP & SQL',
+      categoryIcons: [
+        'php.png',
+        'sql.png',
+        'html.png',
+        'css.png',
+        'bootstrap.png',
+        'js.png',
+      ],
       title: 'CVO BIB',
       summary: 'Bibliotheekapplicatie',
       details: `App voor de schoolbibliotheek van CVO GENT.
@@ -208,6 +272,14 @@ export const projects = [
     en: {
       linkText: 'View the project',
       category: 'PHP & SQL',
+      categoryIcons: [
+        'php.png',
+        'sql.png',
+        'html.png',
+        'css.png',
+        'bootstrap.png',
+        'js.png',
+      ],
       title: 'CVO LIBRARY',
       summary: 'Library application',
       details: `App for the school library of CVO GENT.
@@ -224,6 +296,14 @@ export const projects = [
     nl: {
       linkText: 'Bekijk het project',
       category: 'Android Apps',
+      categoryIcons: [
+        'android.png',
+        'java.png',
+        'html.png',
+        'css.png',
+        'bootstrap.png',
+        'js.png',
+      ],
       title: 'NT2 Grammatica',
       summary: 'Grammatica voor anderstaligen',
       details: `Android app die een grammatica voor anderstalligen aanbiedt.
@@ -232,6 +312,14 @@ export const projects = [
     en: {
       linkText: 'View the project',
       category: 'Android Apps',
+      categoryIcons: [
+        'android.png',
+        'java.png',
+        'html.png',
+        'css.png',
+        'bootstrap.png',
+        'js.png',
+      ],
       title: 'NT2 Grammar',
       summary: 'Grammar for Dutch as a second language',
       details: `Android app that offers a Dutch grammar for non-native speakers.
@@ -245,6 +333,14 @@ export const projects = [
     nl: {
       linkText: 'Bekijk het project',
       category: 'Android Apps',
+      categoryIcons: [
+        'android.png',
+        'java.png',
+        'html.png',
+        'css.png',
+        'bootstrap.png',
+        'js.png',
+      ],
       title: 'NT2 Werkwoorden',
       summary: 'Studeer onregelmatige werkwoorden',
       details: `Android app waarmee je de onregelmatige werkwoorden kan studeren.
@@ -254,6 +350,14 @@ export const projects = [
     en: {
       linkText: 'View the project',
       category: 'Android Apps',
+      categoryIcons: [
+        'android.png',
+        'java.png',
+        'html.png',
+        'css.png',
+        'bootstrap.png',
+        'js.png',
+      ],
       title: 'NT2 Verbs',
       summary: 'Practice Dutch irregular verbs',
       details: `Android app for studying the Dutch irregular verbs.
@@ -268,6 +372,14 @@ export const projects = [
     nl: {
       linkText: 'Bekijk het project',
       category: 'Android Apps',
+      categoryIcons: [
+        'android.png',
+        'java.png',
+        'html.png',
+        'css.png',
+        'bootstrap.png',
+        'js.png',
+      ],
       title: 'NT2 Voorzetsels',
       summary: 'Studeer voorzetsels',
       details: `Android app waarmee je de vaste voorzetsels kan inoefenen.
@@ -278,6 +390,14 @@ export const projects = [
       linkText: 'View the project',
       category: 'Android Apps',
       title: 'NT2 Prepositions',
+      categoryIcons: [
+        'android.png',
+        'java.png',
+        'html.png',
+        'css.png',
+        'bootstrap.png',
+        'js.png',
+      ],
       summary: 'Practice Dutch prepositions',
       details: `Android app for studying the Dutch fixed prepositions.
        | Intended for non-native speakers.
@@ -292,6 +412,14 @@ export const projects = [
       linkText: 'Bekijk het project',
       category: 'Android Apps',
       title: 'NT2 Eten en Drinken',
+      categoryIcons: [
+        'android.png',
+        'java.png',
+        'html.png',
+        'css.png',
+        'bootstrap.png',
+        'js.png',
+      ],
       summary: 'Studeer woordenschat',
       details: `Met deze app kan je nieuwe woorden leren over eten en drinken.
       | Inclusief audio.
@@ -301,6 +429,14 @@ export const projects = [
     en: {
       linkText: 'View the project',
       category: 'Android Apps',
+      categoryIcons: [
+        'android.png',
+        'java.png',
+        'html.png',
+        'css.png',
+        'bootstrap.png',
+        'js.png',
+      ],
       title: 'NT2 Food and Drinks',
       summary: 'Practice Dutch words about food and drinks',
       details: `With this app you can learn new Dutch words about food and drink.
@@ -317,6 +453,14 @@ export const projects = [
       linkText: 'Bekijk het project',
       category: 'Android Apps',
       title: 'Medisch Rekenen',
+      categoryIcons: [
+        'android.png',
+        'java.png',
+        'html.png',
+        'css.png',
+        'bootstrap.png',
+        'js.png',
+      ],
       summary: 'Maak medische berekeningen',
       details: `Met deze app kan je verschillende medische berekeningen maken.
       | App Inventor, Android Studio, Cordova, HTML, CSS, Bootstrap, Javascript`,
@@ -337,6 +481,14 @@ export const projects = [
     nl: {
       linkText: 'Bekijk het project',
       category: 'Android Apps',
+      categoryIcons: [
+        'android.png',
+        'java.png',
+        'html.png',
+        'css.png',
+        'bootstrap.png',
+        'js.png',
+      ],
       title: 'Zuur-Base Lijst',
       summary: 'Voedingslijst met zuur-base waarden',
       details: `Deze app biedt een lijst aan waarin je de zuur-base waarden kan raadplegen.
@@ -345,6 +497,14 @@ export const projects = [
     en: {
       linkText: 'View the project',
       category: 'Android Apps',
+      categoryIcons: [
+        'android.png',
+        'java.png',
+        'html.png',
+        'css.png',
+        'bootstrap.png',
+        'js.png',
+      ],
       title: 'Acid-Base List',
       summary: 'Food list with acid-base values',
       details: `This app provides a list where you can consult the acid-base values.
@@ -358,6 +518,7 @@ export const projects = [
     nl: {
       linkText: 'Bekijk het project',
       category: 'Cloud Installaties',
+      categoryIcons: ['ruby.png'],
       title: 'Canvas LMS',
       summary: 'Testomgeving',
       details: `Testomgeving met de open source versie van Canvas LMS.
@@ -368,6 +529,7 @@ export const projects = [
     en: {
       linkText: 'View the project',
       category: 'Cloud Installations',
+      categoryIcons: ['ruby.png'],
       title: 'Canvas LMS',
       summary: 'Test environment',
       details: `Test environment with the open source version of Canvas LMS.
@@ -383,6 +545,14 @@ export const projects = [
     nl: {
       linkText: 'Bekijk het project',
       category: 'Cloud Installaties',
+      categoryIcons: [
+        'nodejs.png',
+        'express.png',
+        'typeorm.png',
+        'handlebars.png',
+        'css.png',
+        'js.png',
+      ],
       title: 'Just Do IT',
       summary: 'Todo applicatie',
       details: `Opdracht voor Arteveldehogeschool. 
@@ -392,6 +562,14 @@ export const projects = [
     en: {
       linkText: 'View the project',
       category: 'Cloud Installations',
+      categoryIcons: [
+        'nodejs.png',
+        'express.png',
+        'typeorm.png',
+        'handlebars.png',
+        'css.png',
+        'js.png',
+      ],
       title: 'Just Do IT',
       summary: 'Todo application',
       details: `Assignment for Arteveldehogeschool (Ghent, Belglium).
