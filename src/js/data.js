@@ -154,7 +154,8 @@ export const projects = [
       title: 'Farmstand',
       summary: 'Oefenproject met eigen MVC-framework.',
       details: `Gebaseerd op de NodeJS versie van Colt Steele.
-      | Eigen MVC met PHP, Bootstrap 5, MySQL, gebruikersbeheer.`,
+      | Eigen MVC met PHP, Bootstrap 5, MySQL, gebruikersbeheer.
+      | <a href="https://github.com/pgm-dirkbouckaert/farmstand-medoo-mvc" target="_blank">GitHub Repo</a>`,
     },
     en: {
       linkText: 'View the project',
@@ -162,7 +163,8 @@ export const projects = [
       title: 'Farm stand',
       summary: 'Training project with my own MVC framework.',
       details: `Based on Colt Steele's NodeJS version.
-       | My own MVC framework with PHP, Bootstrap 5, MySQL, user management.`,
+       | My own MVC framework with PHP, Bootstrap 5, MySQL, user management.
+       | <a href="https://github.com/pgm-dirkbouckaert/farmstand-medoo-mvc" target="_blank">GitHub Repo</a>`,
     },
   },
   {
@@ -200,7 +202,8 @@ export const projects = [
       details: `App voor de schoolbibliotheek van CVO GENT.
       | Publiek gedeelte voor de cursisten.
       | Afgeschermd gedeelte enkel voor personeel van CVO GENT.
-      | PHP MVC met CodeIgniter 4.`,
+      | PHP MVC met CodeIgniter 4.
+      | <a href="https://github.com/pgm-dirkbouckaert/ci4-school-library-system" target="_blank">GitHub Repo</a>`,
     },
     en: {
       linkText: 'View the project',
@@ -210,7 +213,8 @@ export const projects = [
       details: `App for the school library of CVO GENT.
        | Public area for the students.
        | Logged in area only for CVO GENT staff.
-       | PHP MVC with CodeIgniter 4.`,
+       | PHP MVC with CodeIgniter 4.
+       | <a href="https://github.com/pgm-dirkbouckaert/ci4-school-library-system" target="_blank">GitHub Repo</a>`,
     },
   },
   {
@@ -358,7 +362,8 @@ export const projects = [
       summary: 'Testomgeving',
       details: `Testomgeving met de open source versie van Canvas LMS.
       | Oracle Cloud Instance.
-      | Virtualhost met toekenning domeinnaam.`,
+      | Virtualhost met toekenning domeinnaam.
+      | <a href="https://github.com/instructure/canvas-lms" target="_blank">GitHub Repo</a>`,
     },
     en: {
       linkText: 'View the project',
@@ -367,7 +372,8 @@ export const projects = [
       summary: 'Test environment',
       details: `Test environment with the open source version of Canvas LMS.
        | Oracle Cloud Instance.
-       | Virtualhost with domain name assignment.`,
+       | Virtualhost with domain name assignment.
+       | <a href="https://github.com/instructure/canvas-lms" target="_blank">GitHub Repo</a>`,
     },
   },
   {
