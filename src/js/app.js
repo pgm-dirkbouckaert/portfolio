@@ -113,11 +113,11 @@ import {
                 .map((project) => {
                   return `
                   <li class="project-card">
-                    <div class="tooltip">${project[this.language].summary}</div>
                     <a href="" data-project-id="${project.id}">
                       <img src="images/${project.image}" alt="logo" />
                       <h5>${project[this.language].title.replace('NT2', 'NT2<br>')}</h5>
                     </a>
+                    <div class="tooltip">${project[this.language].summary}</div>
                   </li>`;
                 })
                 .join('')}
@@ -165,7 +165,7 @@ import {
           })
           .join('')}
         </div>
-        <div class="project-summary">${project[this.language].summary}</div>
+        <div class="project-summary"><h5>${project[this.language].summary}</h5></div>
         <div class="project-details">
           <ul>
             ${project[this.language].details
@@ -186,14 +186,18 @@ import {
         <div class="project-footer-nav">
           ${
             currentIndex !== 0
-              ? `<i class="fa-solid fa-angles-left btn-previous" id="btn-previous"
-                    data-previous-index="${currentIndex - 1}"></i>`
+              ? `<button  id="btn-previous" class="btn-previous" 
+                          data-previous-index="${currentIndex - 1}">
+                  <i class="fa-solid fa-angles-left"></i></i>
+                 </button>`
               : '<i>&nbsp;</i>'
           }
           ${
             currentIndex !== projects.length - 1
-              ? `<i class="fa-solid fa-angles-right btn-next" id="btn-next"
-                    data-next-index="${currentIndex + 1}"></i>`
+              ? `<button  id="btn-next" class="btn-next" 
+                          data-next-index="${currentIndex + 1}">
+                  <i class="fa-solid fa-angles-right"></i>
+                 </button>`
               : '<i>&nbsp;</i>'
           }
         </div>

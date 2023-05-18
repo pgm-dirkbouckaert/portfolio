@@ -174,6 +174,8 @@ a:hover {
 }
 
 .btn-close-modal {
+  border: none;
+  background: inherit;
   cursor: pointer;
   float: right;
   position: relative;
@@ -187,7 +189,8 @@ a:hover {
   transition: all 0.4s;
 }
 
-.btn-close-modal:hover {
+.btn-close-modal:hover,
+.btn-close-modal:focus {
   color: var(--color-teal);
 }
 
@@ -310,6 +313,9 @@ nav .choose-language {
   box-shadow: 2px 4px 6px var(--color-gray-light);
 }
 
+.who-am-i h1 {
+  font-size: 2rem;
+}
 body.modal-active .who-am-i {
   opacity: 0.5;
 }
@@ -345,7 +351,8 @@ body.modal-active .who-am-i {
   text-decoration: none;
 }
 
-.social a:hover {
+.social a:hover,
+.social a:focus {
   /* transform: scale(1.05); */
   transform: rotate(-15deg);
 }
@@ -456,7 +463,8 @@ body.modal-active .projects {
   left: 0.3rem;
 }
 
-.project-card:hover .tooltip {
+.project-card:hover .tooltip,
+.project-card a:focus ~ .tooltip {
   opacity: 1;
   top: -3rem;
 }
@@ -507,6 +515,12 @@ body.modal-active .projects {
   margin-bottom: 1rem;
 }
 
+.project-summary h5 {
+  color: inherit;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+}
+
 .project-details {
   margin-bottom: 1rem;
 }
@@ -522,7 +536,10 @@ body.modal-active .projects {
 
 .btn-previous,
 .btn-next {
+  border: none;
+  background: inherit;
   cursor: pointer;
+  color: inherit;
   transition: all 0.4s;
 }
 
@@ -531,7 +548,9 @@ body.modal-active .projects {
 }
 
 .btn-previous:hover,
-.btn-next:hover {
+.btn-next:hover,
+.btn-previous:focus,
+.btn-next:focus {
   opacity: 0.8;
 }
 
