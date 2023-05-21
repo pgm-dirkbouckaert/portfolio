@@ -9,7 +9,7 @@ export const info = {
   en: `
     <span>
        Programming for the web is my passion. Once a hobby, now an education
-       Graduate Programming at Arteveldehogeschool (Ghent, Belgium).
+       Associate Degree in Computer Programming at Arteveldehogeschool (Ghent, Belgium).
      </span>
      <span>
        I am familiar with technologies such as HTML, CSS, Bootstrap, Javascript, PHP, MYSQL,
