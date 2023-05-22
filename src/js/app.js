@@ -248,7 +248,7 @@ import {
             case 'text':
             case 'email':
               return `
-                <div class="form-item">
+                <div class="form-item ${input.name}">
                   <label for="${input.name}"> 
                     ${contacFormLabels[input.name][this.language]} 
                     ${input.required ? `<span class="form-item-required">*</span>` : ''} 
@@ -258,7 +258,7 @@ import {
                 </div>`;
             case 'textarea':
               return `
-                <div class="form-item">
+                <div class="form-item ${input.name}">
                   <label for="${input.name}">
                     ${contacFormLabels[input.name][this.language]} 
                     ${input.required ? `<span class="form-item-required">*</span>` : ''} 

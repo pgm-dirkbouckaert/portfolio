@@ -583,8 +583,8 @@ export const contactFormInputs = [
   { type: 'text', name: 'firstname', required: true },
   { type: 'text', name: 'lastname', required: true },
   { type: 'text', name: 'company', required: false },
-  { type: 'email', name: 'email', required: true },
   { type: 'text', name: 'phone', required: false },
+  { type: 'email', name: 'email', required: true },
   { type: 'textarea', name: 'message', required: true },
   { type: 'submit', name: 'submit' },
 ];
@@ -602,13 +602,13 @@ export const contacFormLabels = {
     en: 'Company',
     nl: 'Bedrijf',
   },
-  email: {
-    en: 'Email',
-    nl: 'E-mail',
-  },
   phone: {
     en: 'Phone',
     nl: 'Telefoon',
+  },
+  email: {
+    en: 'Email',
+    nl: 'E-mail',
   },
   message: {
     en: 'Your question or message',

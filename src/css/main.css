@@ -565,10 +565,56 @@ form {
   border: 1px solid var(--color-gray-light);
   border-radius: 0.3125rem;
   box-shadow: 2px 4px 6px var(--color-gray-light);
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .form-item {
-  margin-bottom: 2rem;
+  flex: 1 0 100%;
+  margin: 0 0.5rem 2rem;
+  position: relative;
+}
+
+.form-item.message {
+  flex: 1 0 100%;
+}
+
+.form-item.email {
+  max-width: 48%;
+}
+
+@media screen and (min-width: 31rem) {
+  .form-item {
+    flex: 1 0 45%;
+  }
+}
+
+@media screen and (min-width: 41rem) {
+  .form-item {
+    flex: 1 0 30%;
+  }
+}
+
+@media screen and (min-width: 55rem) {
+  .form-item {
+    flex: 1 0 20%;
+  }
+}
+
+.form-item::after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  width: 1px;
+  height: 25%;
+  background-color: var(--color-teal);
+}
+
+.form-item.message::after {
+  opacity: 0;
 }
 
 form label {
@@ -589,6 +635,7 @@ form input {
 }
 
 form textarea {
+  flex: 1 0 100%;
   width: 100%;
   border: 1px solid var(--color-teal);
   color: var(--color-teal);
@@ -598,6 +645,7 @@ form textarea {
 form input:focus,
 form textarea:focus {
   outline: 1px dotted var(--color-teal);
+  border-left: 1px solid var(--color-teal);
 }
 
 form textarea:focus {
