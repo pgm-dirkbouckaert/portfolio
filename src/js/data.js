@@ -389,7 +389,6 @@ export const projects = [
     en: {
       linkText: 'View the project',
       category: 'Android Apps',
-      title: 'NT2 Prepositions',
       categoryIcons: [
         'android.png',
         'java.png',
@@ -398,6 +397,7 @@ export const projects = [
         'bootstrap.png',
         'js.png',
       ],
+      title: 'NT2 Prepositions',
       summary: 'Practice Dutch prepositions',
       details: `Android app for studying the Dutch fixed prepositions.
        | Intended for non-native speakers.
@@ -411,7 +411,6 @@ export const projects = [
     nl: {
       linkText: 'Bekijk het project',
       category: 'Android Apps',
-      title: 'NT2 Eten en Drinken',
       categoryIcons: [
         'android.png',
         'java.png',
@@ -420,6 +419,7 @@ export const projects = [
         'bootstrap.png',
         'js.png',
       ],
+      title: 'NT2 Eten en Drinken',
       summary: 'Studeer woordenschat',
       details: `Met deze app kan je nieuwe woorden leren over eten en drinken.
       | Inclusief audio.
@@ -452,7 +452,6 @@ export const projects = [
     nl: {
       linkText: 'Bekijk het project',
       category: 'Android Apps',
-      title: 'Medisch Rekenen',
       categoryIcons: [
         'android.png',
         'java.png',
@@ -461,6 +460,7 @@ export const projects = [
         'bootstrap.png',
         'js.png',
       ],
+      title: 'Medisch Rekenen',
       summary: 'Maak medische berekeningen',
       details: `Met deze app kan je verschillende medische berekeningen maken.
       | App Inventor, Android Studio, Cordova, HTML, CSS, Bootstrap, Javascript`,
@@ -468,6 +468,14 @@ export const projects = [
     en: {
       linkText: 'View the project',
       category: 'Android Apps',
+      categoryIcons: [
+        'android.png',
+        'java.png',
+        'html.png',
+        'css.png',
+        'bootstrap.png',
+        'js.png',
+      ],
       title: 'Medical Calculation',
       summary: 'App for medical calculations',
       details: `With this app you can make various medical calculations.
