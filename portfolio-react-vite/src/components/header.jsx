@@ -1,28 +1,23 @@
 import './header.css';
 import * as Scroll from 'react-scroll';
-import {
-  Link,
-  Button,
-  Element,
-  Events,
-  animateScroll as scroll,
-  scrollSpy,
-  scroller,
-} from 'react-scroll';
+import { Link, Events, animateScroll as scroll, scrollSpy } from 'react-scroll';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import { IoCloseOutline } from 'react-icons/io5';
 import { navItems } from '../data';
 import { FaCode } from 'react-icons/fa';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useLanguage } from '../contexts/language.context';
 import { useActiveNav } from '../contexts/active-navitem.context';
 
 const Header = () => {
   const { language, handleChangeLanguage } = useLanguage();
   const { activeNav, setActiveNav } = useActiveNav();
+  const [scrollOffset, setScrollOffset] = useState(0);
   const refHamburgerCheckbox = useRef();
+  const refHeader = useRef();
 
   useEffect(() => {
+    setScrollOffset(refHeader.current.clientWidth < 880 ? -350 : -64);
     Events.scrollEvent.register('begin', function (to, element) {
       // console.log('begin', arguments);
     });
@@ -44,10 +39,11 @@ const Header = () => {
   const handleNavClick = (e) => {
     setActiveNav(e.target.id);
     refHamburgerCheckbox.current.click();
+    setScrollOffset(refHeader.current.clientWidth < 880 ? -350 : -64);
   };
 
   return (
-    <header>
+    <header ref={refHeader}>
       <nav>
         <input
           type="checkbox"
@@ -67,11 +63,12 @@ const Header = () => {
             navItems[language].map((item, index) => (
               <li key={index}>
                 <Link
-                  // activeClass="active"
+                  activeClass="active"
                   to={item.href.replace('#', '')}
                   spy={true}
                   smooth={true}
-                  // duration={300}
+                  offset={scrollOffset}
+                  duration={300}
                   onSetActive={handleSetActive}
                   id={`navitem-${item.href.replace('#', '')}`}
                   href={item.href}

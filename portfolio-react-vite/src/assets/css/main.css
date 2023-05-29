@@ -73,7 +73,6 @@ body {
   font-weight: 400;
   background-color: var(--color-body-bg);
   color: var(--color-white);
-  scroll-snap-stop: always;
 }
 
 ::-moz-selection {
@@ -135,8 +134,6 @@ a:hover {
 
 /* Sections */
 .page {
-  scroll-snap-align: start;
-  height: 100vh;
   padding: 1rem;
   padding-top: 6rem;
   background-color: var(--color-teal);
@@ -196,6 +193,7 @@ a:hover {
 *****************/
 .customModal {
   border-radius: 0.5rem;
+  top: 10%;
 }
 
 .modal-content {

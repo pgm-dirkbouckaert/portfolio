@@ -37,7 +37,7 @@ const ProjectListItem = ({ project }) => {
         <Modal
           open={isModalopen}
           onClose={closeModal}
-          center
+          top
           classNames={{
             modal: 'customModal',
           }}
