@@ -1,0 +1,14 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+header {
+  max-height: 4rem;
+}
+
+form {
+  margin-bottom: 0rem;
+}
