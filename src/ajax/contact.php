@@ -99,7 +99,7 @@ foreach ($formData as $key => $value) {
 // Send email with SendGrid
 // ------------------------
 $email = new Mail();
-$email->setFrom("support@ileren.be", "iLeren Support");
+$email->setFrom("text@example.com", "Support");
 $email->setSubject("A message from your portfolio website");
 $email->addTo("test@example.com", "Someone");
 $email->addContent("text/html", $htmlBody);
