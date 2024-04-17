@@ -161,7 +161,8 @@ a:hover {
 .modal {
   width: calc(100% - 2rem);
   max-width: 38rem;
-  min-height: 7rem;
+  /* min-height: 7rem; */
+  min-height: 27rem;
   background-color: var(--color-white);
   box-shadow: 2px 4px 8px var(--color-gray-dark);
   border-radius: 0.5rem;
