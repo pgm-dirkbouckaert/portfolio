@@ -2,54 +2,55 @@
 <html lang="nl">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>NT2 Digiboek</title>
+  <title>NT2 Digiboek</title>
 
-    <!-- FAVICON -->
-    <link rel='icon' type='image/png' href='img/favicon.png' />
+  <!-- FAVICON -->
+  <link rel='icon' type='image/png' href='img/favicon.png' />
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <!-- <link rel="stylesheet" href="css/simple-grid.css"> -->
-    <link rel="stylesheet" href="css/mystyle.css">
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <!-- <link rel="stylesheet" href="css/simple-grid.css"> -->
+  <link rel="stylesheet" href="css/mystyle.css">
 
-    <!-- DIGIBOEK OBJECTEN JS -->
-    <script src="js/digiboekObjecten.js"></script>
+  <!-- DIGIBOEK OBJECTEN JS -->
+  <script src="js/digiboekObjecten.js"></script>
 
-    <script>
-        window.onload = function() {
-            // Set divs met boeken
-            var row = document.getElementsByClassName("grid-container")[0];
-            for (var i = 0; i < arrIndex.length; i++) {
-                let title = arrIndex[i][1];
-                let page = "books-html/" + arrIndex[i][0] + "/index.html";
-                let div = document.createElement("div");
-                // div.className = "col-centered indexDiv";
-                div.setAttribute("onclick", "window.location.href='" + page + "'");                
-                div.innerHTML = title;
-                row.appendChild(div);
-;            }
-        }
-    </script>
+  <script>
+    window.onload = function () {
+      // Set divs met boeken
+      var row = document.getElementsByClassName("grid-container")[0];
+      for (var i = 0; i < arrIndex.length; i++) {
+        let title = arrIndex[i][1];
+        let page = "books-html/" + arrIndex[i][0] + "/index.html";
+        let div = document.createElement("div");
+        // div.className = "col-centered indexDiv";
+        div.setAttribute("onclick", "window.location.href='" + page + "'");
+        div.innerHTML = title;
+        row.appendChild(div);
+        ;
+      }
+    }
+  </script>
 
 </head>
 
 <body oncontextmenu="return false;">
 
+  <br><br>
+  <div>
+    <nav>
+      <div class="indexTitle">NT2 DIGIBOEK</div>
+    </nav>
     <br><br>
-    <div>
-        <nav>
-            <div class="indexTitle">NT2 DIGIBOEK</div>
-        </nav>
-        <br><br>
-        <div class="grid-container">
-        </div>
-        <br>
-        <img src="img/collage.jpg" style="max-width: 700px;">
-        <br>
+    <div class="grid-container">
     </div>
+    <br>
+    <img src="img/collage.jpg" style="max-width: 700px;">
+    <br>
+  </div>
 
 </body>
 

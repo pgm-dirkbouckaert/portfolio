@@ -37,6 +37,7 @@ import {
       this.$info = document.getElementById('info');
       this.$projects = document.getElementById('projects');
       this.$form = document.getElementById('form');
+      this.$formSimulationMessage = document.getElementById('simulation');
     },
     /**
      * GET LANGUAGE
@@ -110,8 +111,8 @@ import {
             <h2 class="category">${category}</h2>
             <ul class="project-list">
               ${filteredProjects
-                .map((project) => {
-                  return `
+              .map((project) => {
+                return `
                   <li class="project-card">
                     <a href="" data-project-id="${project.id}">
                       <img src="images/${project.image}" alt="logo" />
@@ -119,8 +120,8 @@ import {
                     </a>
                     <div class="tooltip">${project[this.language].summary}</div>
                   </li>`;
-                })
-                .join('')}
+              })
+              .join('')}
             </ul>
           `;
         })
@@ -154,10 +155,12 @@ import {
     renderProjectDetails(project) {
       return `
         <h3 class="project-title">
-          <a href="${project.url}" target="_blank">
-            ${project[this.language].title}
-            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-          </a>
+        ${project.url
+          ? `<a href="${project.url}" target="_blank">
+              ${project[this.language].title}
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+             </a>`
+          : `${project[this.language].title}`}
         </h3>
         <div class="project-category-icons">${project[this.language].categoryIcons
           .map((icon) => {
@@ -169,13 +172,15 @@ import {
         <div class="project-details">
           <ul>
             ${project[this.language].details
-              .split('|')
-              .map((item) => `<li>${item.trim()}</li>`)
-              .join('')}
-            <li>
+          .split('|')
+          .map((item) => `<li>${item.trim()}</li>`)
+          .join('')}
+          ${project.url
+          ? `<li>
               <a href="${project.url}" target="_blank">${project[this.language].linkText}
               </a>
-            </li>
+            </li>`
+          : ''}
           </ul>  
         </div>
         ${this.renderProjectDetailsNav(projects.findIndex((p) => p.id === project.id))}
@@ -184,22 +189,20 @@ import {
     renderProjectDetailsNav(currentIndex) {
       return `
         <div class="project-footer-nav">
-          ${
-            currentIndex !== 0
-              ? `<button  id="btn-previous" class="btn-previous" 
+          ${currentIndex !== 0
+          ? `<button  id="btn-previous" class="btn-previous" 
                           data-previous-index="${currentIndex - 1}">
                   <i class="fa-solid fa-angles-left"></i></i>
                  </button>`
-              : '<i>&nbsp;</i>'
-          }
-          ${
-            currentIndex !== projects.length - 1
-              ? `<button  id="btn-next" class="btn-next" 
+          : '<i>&nbsp;</i>'
+        }
+          ${currentIndex !== projects.length - 1
+          ? `<button  id="btn-next" class="btn-next" 
                           data-next-index="${currentIndex + 1}">
                   <i class="fa-solid fa-angles-right"></i>
                  </button>`
-              : '<i>&nbsp;</i>'
-          }
+          : '<i>&nbsp;</i>'
+        }
         </div>
       `;
     },
@@ -238,8 +241,12 @@ import {
      */
     buildContactForm() {
       if (this.path === 'contact.html') {
+        this.$formSimulationMessage.innerHTML = this.renderSimulationMessage();
         this.$form.innerHTML = this.renderContactForm(contactFormInputs);
       }
+    },
+    renderSimulationMessage() {
+      return `<p>${contactFormMessages.simulation[this.language]}</p>`;
     },
     renderContactForm(inputs) {
       return inputs
@@ -324,10 +331,10 @@ import {
       return `
         <ul>
           ${errors
-            .map((error) => {
-              return `<li>${error}</li>`;
-            })
-            .join('')}
+          .map((error) => {
+            return `<li>${error}</li>`;
+          })
+          .join('')}
         </ul>
       `;
     },

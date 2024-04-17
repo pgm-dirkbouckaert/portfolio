@@ -96,12 +96,12 @@ foreach ($formData as $key => $value) {
 //   // echo json_encode(["errors" => [$phpmailer->ErrorInfo]]);
 // }
 
-// Send email with SendGrid (to my personal account)
-// -------------------------------------------------
+// Send email with SendGrid
+// ------------------------
 $email = new Mail();
 $email->setFrom("support@ileren.be", "iLeren Support");
 $email->setSubject("A message from your portfolio website");
-$email->addTo("diboma@gmail.com", "Dirk Bouckaert");
+$email->addTo("test@example.com", "Someone");
 $email->addContent("text/html", $htmlBody);
 $sendgrid = new \SendGrid($_ENV['SENDGRID_API_KEY']);
 try {
@@ -115,7 +115,8 @@ try {
 }
 
 // Utility: sanitize
-function sanitize($item) {
+function sanitize($item)
+{
   $item = trim($item);
   $item = stripslashes($item);
   $item = htmlspecialchars($item);

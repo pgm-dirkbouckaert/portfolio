@@ -115,9 +115,9 @@ export const projects = [
       title: 'Digiboek',
       summary: 'Online handboeken',
       details: `Digiboek voor de leerkrachten van CVO GENT. 
-      | Voor dit portfolio kan je een extract bekijken met één handboek.
-      | Het origineel biedt alle handboeken aan.
-      | HTML, CSS, Bootstrap, Javascript, JQuery, canvas`,
+      | HTML, CSS, Bootstrap, Javascript, JQuery, canvas
+      | Voor dit portfolio kan je een versie bekijken met één handboek.
+      `,
     },
     en: {
       linkText: 'View the project',
@@ -134,7 +134,7 @@ export const projects = [
   {
     id: 5,
     image: 'mimosa.png',
-    url: 'https://dirkb.be/mimosa',
+    // url: 'https://dirkb.be/mimosa',
     nl: {
       linkText: 'Bekijk het project',
       category: 'PHP & SQL',
@@ -149,7 +149,8 @@ export const projects = [
       title: 'Mimosa',
       summary: 'Fotogallerij',
       details: `Op deze website wordt een fotogallerij aangeboden.
-      | Eigen MVC met PHP, Bootstrap 5, MySQL, gebruikersbeheer.`,
+      | Eigen MVC met PHP, Bootstrap 5, MySQL, gebruikersbeheer.
+      | Dit project staat niet meer online.`,
     },
     en: {
       linkText: 'View the project',
@@ -165,7 +166,8 @@ export const projects = [
       title: 'Mimosa',
       summary: 'Photo gallery',
       details: `This website presents a photo gallery of jewellery.
-       | My own MVC framework with PHP, Bootstrap 5, MySQL, user management.`,
+       | My own MVC framework with PHP, Bootstrap 5, MySQL, user management.
+       | This project is no longer online.`,
     },
   },
   {
@@ -210,7 +212,7 @@ export const projects = [
   {
     id: 7,
     image: 'bestellingen-voeding.png',
-    url: 'https://cvogent.be/bestellingen-voeding',
+    // url: 'https://cvogent.be/bestellingen-voeding',
     nl: {
       linkText: 'Bekijk het project',
       category: 'PHP & SQL',
@@ -224,9 +226,9 @@ export const projects = [
       ],
       title: 'CVO Voeding',
       summary: 'Oefenproject met eigen MVC-framework.',
-      details: `Ontwerp voor CVO GENT.
-      | Geen toegang zonder cvogent-account.
-      | Eigen MVC met PHP, Bootstrap 5, MySQL, gebruikersbeheer.`,
+      details: `Eigen MVC met PHP, Bootstrap 5, MySQL, gebruikersbeheer.
+      | Ontwerp voor CVO GENT. Geen toegang zonder cvogent-account.
+      | Dit project staat niet meer online.`,
     },
     en: {
       linkText: 'View the project',
@@ -243,7 +245,8 @@ export const projects = [
       summary: 'Training project with my own MVC framework.',
       details: `Design for CVO GENT.
        | No access without cvogent account.
-       | My own MVC framework with PHP, Bootstrap 5, MySQL, user management.`,
+       | My own MVC framework with PHP, Bootstrap 5, MySQL, user management.
+       | This project is no longer online.`,
     },
   },
   {
@@ -522,7 +525,7 @@ export const projects = [
   {
     id: 15,
     image: 'canvas.png',
-    url: 'https://canvas.dirkb.cyou/',
+    // url: 'https://canvas.dirkb.cyou/',
     nl: {
       linkText: 'Bekijk het project',
       category: 'Cloud Installaties',
@@ -532,7 +535,8 @@ export const projects = [
       details: `Testomgeving met de open source versie van Canvas LMS.
       | Oracle Cloud Instance.
       | Virtualhost met toekenning domeinnaam.
-      | <a href="https://github.com/instructure/canvas-lms" target="_blank">GitHub Repo</a>`,
+      | <a href="https://github.com/instructure/canvas-lms" target="_blank">GitHub Repo</a>
+      | Dit project staat niet meer online.`,
     },
     en: {
       linkText: 'View the project',
@@ -543,13 +547,14 @@ export const projects = [
       details: `Test environment with the open source version of Canvas LMS.
        | Oracle Cloud Instance.
        | Virtualhost with domain name assignment.
-       | <a href="https://github.com/instructure/canvas-lms" target="_blank">GitHub Repo</a>`,
+       | <a href="https://github.com/instructure/canvas-lms" target="_blank">GitHub Repo</a>
+       | This project is no longer online.`,
     },
   },
   {
     id: 16,
     image: 'justdoit.png',
-    url: 'https://gcp.dirkb.cyou:3000/',
+    // url: 'https://gcp.dirkb.cyou:3000/',
     nl: {
       linkText: 'Bekijk het project',
       category: 'Cloud Installaties',
@@ -565,7 +570,7 @@ export const projects = [
       summary: 'Todo applicatie',
       details: `Opdracht voor Arteveldehogeschool. 
       | Een todo-applicatie met Express, TypeORM (sqlite3), Handlebars, authenticatie met JSON Web Token.
-      | Staat online op een Google Cloud Instance.`,
+      | Dit project staat niet meer online.`,
     },
     en: {
       linkText: 'View the project',
@@ -582,7 +587,7 @@ export const projects = [
       summary: 'Todo application',
       details: `Assignment for Arteveldehogeschool (Ghent, Belglium).
        | A todo application with Express, TypeORM (sqlite3), Handlebars, authentication with JSON Web Token.
-       | You can find the app online on a Google Cloud Instance.`,
+       | This project is no longer online.`,
     },
   },
 ];
@@ -637,4 +642,8 @@ export const contactFormMessages = {
     en: 'Sorry, something went wrong. Try again.',
     nl: 'Sorry, er ging iets fout. Probeer opnieuw.',
   },
+  simulation: {
+    en: 'This is a simulation. Your message will not be sent.',
+    nl: 'Dit is een simulatie. Jouw bericht wordt niet verzonden.',
+  }
 };
