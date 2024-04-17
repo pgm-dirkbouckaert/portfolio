@@ -171,15 +171,15 @@ import {
         <div class="project-summary"><h5>${project[this.language].summary}</h5></div>
         <div class="project-details">
           <ul>
-            ${project[this.language].details
+          ${project[this.language].details
           .split('|')
           .map((item) => `<li>${item.trim()}</li>`)
           .join('')}
           ${project.url
           ? `<li>
-              <a href="${project.url}" target="_blank">${project[this.language].linkText}
-              </a>
-            </li>`
+                <a href="${project.url}" target="_blank">${project[this.language].linkText}
+                </a>
+              </li>`
           : ''}
           </ul>  
         </div>

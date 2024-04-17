@@ -116,8 +116,7 @@ export const projects = [
       summary: 'Online handboeken',
       details: `Digiboek voor de leerkrachten van CVO GENT. 
       | HTML, CSS, Bootstrap, Javascript, JQuery, canvas
-      | Voor dit portfolio kan je een versie bekijken met één handboek.
-      `,
+      | Voor dit portfolio kan je een versie bekijken met één handboek.`,
     },
     en: {
       linkText: 'View the project',
@@ -126,9 +125,8 @@ export const projects = [
       title: 'Digibook',
       summary: "Online teachers' books",
       details: `Digital books for the teachers of CVO GENT.
-       | For this portfolio you can view an extract with one handbook.
-       | The original digibook offers all handbooks for the teachers.
-       | HTML, CSS, Bootstrap, Javascript, JQuery, canvas`,
+      | HTML, CSS, Bootstrap, Javascript, JQuery, canvas
+      | For this portfolio you can view an extract with one handbook.`,
     },
   },
   {
@@ -166,8 +164,8 @@ export const projects = [
       title: 'Mimosa',
       summary: 'Photo gallery',
       details: `This website presents a photo gallery of jewellery.
-       | My own MVC framework with PHP, Bootstrap 5, MySQL, user management.
-       | This project is no longer online.`,
+      | Custom MVC framework with PHP, Bootstrap 5, MySQL, user management.
+      | This project is no longer online.`,
     },
   },
   {
@@ -205,8 +203,8 @@ export const projects = [
       title: 'Farm stand',
       summary: 'Training project with my own MVC framework.',
       details: `Based on Colt Steele's NodeJS version.
-       | My own MVC framework with PHP, Bootstrap 5, MySQL, user management.
-       | <a href="https://github.com/pgm-dirkbouckaert/farmstand-medoo-mvc" target="_blank">GitHub Repo</a>`,
+      | My own MVC framework with PHP, Bootstrap 5, MySQL, user management.
+      | <a href="https://github.com/pgm-dirkbouckaert/farmstand-medoo-mvc" target="_blank">GitHub Repo</a>`,
     },
   },
   {
@@ -243,10 +241,9 @@ export const projects = [
       ],
       title: 'CVO Food',
       summary: 'Training project with my own MVC framework.',
-      details: `Design for CVO GENT.
-       | No access without cvogent account.
-       | My own MVC framework with PHP, Bootstrap 5, MySQL, user management.
-       | This project is no longer online.`,
+      details: `Custom MVC framework with PHP, Bootstrap 5, MySQL, user management.
+      | Design for CVO GENT. No access without cvogent account.
+      | This project is no longer online.`,
     },
   },
   {
@@ -645,5 +642,5 @@ export const contactFormMessages = {
   simulation: {
     en: 'This is a simulation. Your message will not be sent.',
     nl: 'Dit is een simulatie. Jouw bericht wordt niet verzonden.',
-  }
+  },
 };
