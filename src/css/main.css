@@ -588,6 +588,13 @@ body.modal-active .projects {
 .project-footer-nav {
   font-size: 1.5rem;
   color: var(--color-gray);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1rem;
 }
 
 .btn-previous,
