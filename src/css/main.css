@@ -218,6 +218,8 @@ a:hover {
 /* HEADER 
 ****************************************/
 header {
+  position: relative;
+  z-index: 100;
   box-shadow: 2px 2px 10px var(--color-gray-dark);
   background-color: var(--color-black);
 }
