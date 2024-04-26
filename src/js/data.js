@@ -12,8 +12,8 @@ export const info = {
        Associate Degree in Computer Programming at Arteveldehogeschool (Ghent, Belgium).
      </span>
      <span>
-       I am familiar with technologies such as HTML, CSS, Bootstrap, Javascript, PHP, MYSQL,
-       NodeJS, ExpressJS, React, Google Apps Script, ...
+       I am familiar with technologies such as HTML, CSS, Bootstrap, Tailwind CSS, Javascript,
+       NodeJS, ExpressJS, React, Google Apps Script, PHP, MYSQL, Laravel, CodeIgniter, ...
      </span>`,
   nl: `
     <span>
@@ -21,8 +21,8 @@ export const info = {
       Graduaat Programmeren aan Arteveldehogeschool (Gent, België).
     </span>
     <span>
-      Ik ben vertrouwd met technologieën als HTML, CSS, Bootstrap, Javascript, PHP, MYSQL,
-      NodeJS, ExpressJS, React, Google Apps Script, ...
+      Ik ben vertrouwd met technologieën als HTML, CSS, Bootstrap, Tailwind CSS, Javascript, 
+      NodeJS, ExpressJS, React, Google Apps Script, PHP, MYSQL, Laravel, CodeIgniter, ...
     </span>`,
 };
 
