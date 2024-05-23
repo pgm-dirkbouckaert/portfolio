@@ -131,41 +131,43 @@ export const projects = [
   },
   {
     id: 5,
-    image: 'mimosa.png',
-    // url: 'https://dirkb.be/mimosa',
+    image: 'nt2leesboeken.png',
+    url: 'https://ahs-dirkb.serv00.net/',
     nl: {
+      title: 'NT2 Leesboeken',
       linkText: 'Bekijk het project',
       category: 'PHP & SQL',
       categoryIcons: [
+        'laravel.png',
+        'tailwind.png',
         'php.png',
         'sql.png',
         'html.png',
         'css.png',
-        'bootstrap.png',
         'js.png',
       ],
-      title: 'Mimosa',
-      summary: 'Fotogallerij',
-      details: `Op deze website wordt een fotogallerij aangeboden.
-      | Eigen MVC met PHP, Bootstrap 5, MySQL, gebruikersbeheer.
-      | Dit project staat niet meer online.`,
+      summary: 'Niche community',
+      details: `Niche community over Nederlandstalige leesboeken voor anderstaligen.
+      | Project voor het vak Content Management Systems (Arteveldehogeschool).
+      | Laravel, Tailwind, MVC, MySQL.`,
     },
     en: {
+      title: 'NT2 Leesboeken',
       linkText: 'View the project',
       category: 'PHP & SQL',
       categoryIcons: [
+        'laravel.png',
+        'tailwind.png',
         'php.png',
         'sql.png',
         'html.png',
         'css.png',
-        'bootstrap.png',
         'js.png',
       ],
-      title: 'Mimosa',
-      summary: 'Photo gallery',
-      details: `This website presents a photo gallery of jewellery.
-      | Custom MVC framework with PHP, Bootstrap 5, MySQL, user management.
-      | This project is no longer online.`,
+      summary: 'Niche community',
+      details: `Niche community about Dutch literature for non-native speakers.
+      | Project for the course Content Management Systems (Arteveldehogeschool).
+      | Laravel, Tailwind, MVC, MySQL.`,
     },
   },
   {
@@ -207,45 +209,45 @@ export const projects = [
       | <a href="https://github.com/pgm-dirkbouckaert/farmstand-medoo-mvc" target="_blank">GitHub Repo</a>`,
     },
   },
-  {
-    id: 7,
-    image: 'bestellingen-voeding.png',
-    // url: 'https://cvogent.be/bestellingen-voeding',
-    nl: {
-      linkText: 'Bekijk het project',
-      category: 'PHP & SQL',
-      categoryIcons: [
-        'php.png',
-        'sql.png',
-        'html.png',
-        'css.png',
-        'bootstrap.png',
-        'js.png',
-      ],
-      title: 'CVO Voeding',
-      summary: 'Oefenproject met eigen MVC-framework.',
-      details: `Eigen MVC met PHP, Bootstrap 5, MySQL, gebruikersbeheer.
-      | Ontwerp voor CVO GENT. Geen toegang zonder cvogent-account.
-      | Dit project staat niet meer online.`,
-    },
-    en: {
-      linkText: 'View the project',
-      category: 'PHP & SQL',
-      categoryIcons: [
-        'php.png',
-        'sql.png',
-        'html.png',
-        'css.png',
-        'bootstrap.png',
-        'js.png',
-      ],
-      title: 'CVO Food',
-      summary: 'Training project with my own MVC framework.',
-      details: `Custom MVC framework with PHP, Bootstrap 5, MySQL, user management.
-      | Design for CVO GENT. No access without cvogent account.
-      | This project is no longer online.`,
-    },
-  },
+  // {
+  //   id: 7,
+  //   image: 'bestellingen-voeding.png',
+  //   // url: 'https://cvogent.be/bestellingen-voeding',
+  //   nl: {
+  //     linkText: 'Bekijk het project',
+  //     category: 'PHP & SQL',
+  //     categoryIcons: [
+  //       'php.png',
+  //       'sql.png',
+  //       'html.png',
+  //       'css.png',
+  //       'bootstrap.png',
+  //       'js.png',
+  //     ],
+  //     title: 'CVO Voeding',
+  //     summary: 'Oefenproject met eigen MVC-framework.',
+  //     details: `Eigen MVC met PHP, Bootstrap 5, MySQL, gebruikersbeheer.
+  //     | Ontwerp voor CVO GENT. Geen toegang zonder cvogent-account.
+  //     | Dit project staat niet meer online.`,
+  //   },
+  //   en: {
+  //     linkText: 'View the project',
+  //     category: 'PHP & SQL',
+  //     categoryIcons: [
+  //       'php.png',
+  //       'sql.png',
+  //       'html.png',
+  //       'css.png',
+  //       'bootstrap.png',
+  //       'js.png',
+  //     ],
+  //     title: 'CVO Food',
+  //     summary: 'Training project with my own MVC framework.',
+  //     details: `Custom MVC framework with PHP, Bootstrap 5, MySQL, user management.
+  //     | Design for CVO GENT. No access without cvogent account.
+  //     | This project is no longer online.`,
+  //   },
+  // },
   {
     id: 8,
     image: 'cvobib.png',
