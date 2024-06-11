@@ -28,7 +28,7 @@ export const info = {
 
 export const projects = [
   {
-    id: 1,
+    id: 'ileren',
     image: 'ileren.png',
     url: 'https://ileren.be/',
     nl: {
@@ -53,7 +53,7 @@ export const projects = [
     },
   },
   {
-    id: 2,
+    id: 'schuilplaats',
     image: 'schuilplaats.png',
     url: 'https://schuilplaats.be/',
     nl: {
@@ -80,7 +80,7 @@ export const projects = [
     },
   },
   {
-    id: 3,
+    id: 'nt2grammatica',
     image: 'nt2grammatica.png',
     url: 'https://cvogent.be/nt2grammatica',
     nl: {
@@ -105,7 +105,7 @@ export const projects = [
     },
   },
   {
-    id: 4,
+    id: 'nt2digiboek',
     image: 'nt2digiboek.png',
     url: 'projects/nt2digiboek-sample/',
     nl: {
@@ -130,7 +130,121 @@ export const projects = [
     },
   },
   {
-    id: 5,
+    id: 'justdoit',
+    image: 'justdoit.png',
+    // url: 'https://gcp.dirkb.cyou:3000/',
+    nl: {
+      linkText: 'Bekijk het project',
+      category: 'NodeJS/Express/React',
+      categoryIcons: [
+        'nodejs.png',
+        'express.png',
+        'typeorm.png',
+        'handlebars.png',
+        'css.png',
+        'js.png',
+      ],
+      title: 'Just Do IT',
+      summary: 'Todo applicatie',
+      details: `Opdracht voor Arteveldehogeschool. 
+      | Express, TypeORM (sqlite3), Handlebars.
+      | Authenticatie met JSON Web Token.
+      | <a href="https://github.com/pgm-dirkbouckaert/justdoit" target="_blank">GitHub Repo</a>`,
+    },
+    en: {
+      linkText: 'View the project',
+      category: 'NodeJS/Express/React',
+      categoryIcons: [
+        'nodejs.png',
+        'express.png',
+        'typeorm.png',
+        'handlebars.png',
+        'css.png',
+        'js.png',
+      ],
+      title: 'Just Do IT',
+      summary: 'Todo application',
+      details: `Assignment for Arteveldehogeschool (Ghent, Belgium).
+       | Express, TypeORM (sqlite3), Handlebars.
+       | Authentication with JSON Web Token.
+       | <a href="https://github.com/pgm-dirkbouckaert/justdoit" target="_blank">GitHub Repo</a>`,
+    },
+  },
+  {
+    id: 'twitch',
+    image: 'twitch.png',
+    // url: 'https://gcp.dirkb.cyou:3333/',
+    nl: {
+      linkText: 'Bekijk het project',
+      category: 'NodeJS/Express/React',
+      categoryIcons: [
+        'nodejs.png',
+        'express.png',
+        'typeorm.png',
+        'handlebars.png',
+        'bootstrap.png',
+        'js.png',
+      ],
+      title: 'twITch',
+      summary:
+        'Een platform waaop leerkrachten hun videos over IT onderwerpen aanbieden.',
+      details: `Opdracht voor Arteveldehogeschool. 
+      | Express, TypeORM (sqlite3), Handlebars, Bootstrap, authenticatie met JSON Web Token, gebruikersrollen.
+      | Testing: Jest
+      | Swagger (API Docs)
+      | <a href="https://github.com/pgm-dirkbouckaert/twitch" target="_blank">GitHub Repo</a>`,
+    },
+    en: {
+      linkText: 'View the project',
+      category: 'NodeJS/Express/React',
+      categoryIcons: [
+        'nodejs.png',
+        'express.png',
+        'typeorm.png',
+        'handlebars.png',
+        'bootstrap.png',
+        'js.png',
+      ],
+      title: 'twITch',
+      summary: 'A platform on which teachers offer their videos on IT-related topics.',
+      details: `Assignment for Arteveldehogeschool (Ghent, Belgium).
+       | Express, TypeORM (sqlite3), Handlebars, Bootstrap, authentication with JSON Web Token, user roles.
+       | Testing: Jest
+       | Swagger (API Docs)
+       | <a href="https://github.com/pgm-dirkbouckaert/twitch" target="_blank">GitHub Repo</a>`,
+    },
+  },
+  {
+    id: 'pgm-gent',
+    image: 'pgm-gent.png',
+    url: 'https://pgm-platform-pgm-dirkbouckaert.onrender.com/',
+    nl: {
+      linkText: 'Bekijk het project',
+      category: 'NodeJS/Express/React',
+      categoryIcons: ['react.png', 'tailwind.png', 'hygraph.png', 'cloudinary.png'],
+      title: 'Pgm Gent',
+      summary: 'Een platform voor de opleiding Graduaat Programmeren.',
+      details: `Opdracht voor Arteveldehogeschool. 
+      | React met client-side routing, state management (context), SEO friendly head-tags
+      | Styling met Tailwind CSS
+      | Integratie van Cloud services: GraphCMS, Cloudinary
+      | Deployment op Render.com (het kan tot 1 minuut duren vooraleer de service geactiveerd wordt)`,
+    },
+    en: {
+      linkText: 'View the project',
+      category: 'NodeJS/Express/React',
+      categoryIcons: ['react.png', 'tailwind.png', 'hygraph.png', 'cloudinary.png'],
+      title: 'Pgm Gent',
+      summary: 'An online platform for the Associate Degree in Computer Programming.',
+      details: `Assignment for Arteveldehogeschool (Ghent, Belgium).
+       | React with client-side routing, state management (context), SEO friendly head-tags
+       | Styling with Tailwind CSS
+       | Integration of Cloud services: GraphCMS, Cloudinary
+       | Deployment on Render.com (it can take up to 1 minute before the service is activated)`,
+    },
+  },
+  {
+    id: 'nt2leesboeken',
     image: 'nt2leesboeken.png',
     url: 'https://ahs-dirkb.serv00.net/',
     nl: {
@@ -171,7 +285,7 @@ export const projects = [
     },
   },
   {
-    id: 6,
+    id: 'farmstand',
     image: 'farmstand.png',
     url: 'https://dirkb.be/farmstand',
     nl: {
@@ -209,47 +323,8 @@ export const projects = [
       | <a href="https://github.com/pgm-dirkbouckaert/farmstand-medoo-mvc" target="_blank">GitHub Repo</a>`,
     },
   },
-  // {
-  //   id: 7,
-  //   image: 'bestellingen-voeding.png',
-  //   // url: 'https://cvogent.be/bestellingen-voeding',
-  //   nl: {
-  //     linkText: 'Bekijk het project',
-  //     category: 'PHP & SQL',
-  //     categoryIcons: [
-  //       'php.png',
-  //       'sql.png',
-  //       'html.png',
-  //       'css.png',
-  //       'bootstrap.png',
-  //       'js.png',
-  //     ],
-  //     title: 'CVO Voeding',
-  //     summary: 'Oefenproject met eigen MVC-framework.',
-  //     details: `Eigen MVC met PHP, Bootstrap 5, MySQL, gebruikersbeheer.
-  //     | Ontwerp voor CVO GENT. Geen toegang zonder cvogent-account.
-  //     | Dit project staat niet meer online.`,
-  //   },
-  //   en: {
-  //     linkText: 'View the project',
-  //     category: 'PHP & SQL',
-  //     categoryIcons: [
-  //       'php.png',
-  //       'sql.png',
-  //       'html.png',
-  //       'css.png',
-  //       'bootstrap.png',
-  //       'js.png',
-  //     ],
-  //     title: 'CVO Food',
-  //     summary: 'Training project with my own MVC framework.',
-  //     details: `Custom MVC framework with PHP, Bootstrap 5, MySQL, user management.
-  //     | Design for CVO GENT. No access without cvogent account.
-  //     | This project is no longer online.`,
-  //   },
-  // },
   {
-    id: 8,
+    id: 'cvobib',
     image: 'cvobib.png',
     url: 'https://cvogent.be/cvobib/',
     nl: {
@@ -268,8 +343,7 @@ export const projects = [
       details: `App voor de schoolbibliotheek van CVO GENT.
       | Publiek gedeelte voor de cursisten.
       | Afgeschermd gedeelte enkel voor personeel van CVO GENT.
-      | PHP MVC met CodeIgniter 4.
-      | <a href="https://github.com/pgm-dirkbouckaert/ci4-school-library-system" target="_blank">GitHub Repo</a>`,
+      | PHP MVC met CodeIgniter 4.`,
     },
     en: {
       linkText: 'View the project',
@@ -287,12 +361,11 @@ export const projects = [
       details: `App for the school library of CVO GENT.
        | Public area for the students.
        | Logged in area only for CVO GENT staff.
-       | PHP MVC with CodeIgniter 4.
-       | <a href="https://github.com/pgm-dirkbouckaert/ci4-school-library-system" target="_blank">GitHub Repo</a>`,
+       | PHP MVC with CodeIgniter 4.`,
     },
   },
   {
-    id: 9,
+    id: 'nt2grammatica-android',
     image: 'nt2grammatica-android.png',
     url: 'https://play.google.com/store/apps/details?id=be.ileren.grammatica',
     nl: {
@@ -329,7 +402,7 @@ export const projects = [
     },
   },
   {
-    id: 10,
+    id: 'nt2werkwoorden-android',
     image: 'nt2werkwoorden.png',
     url: 'https://play.google.com/store/apps/details?id=be.ileren.werkwoorden',
     nl: {
@@ -368,7 +441,7 @@ export const projects = [
     },
   },
   {
-    id: 11,
+    id: 'nt2voorzetsels-android',
     image: 'nt2voorzetsels.png',
     url: 'https://play.google.com/store/apps/details?id=be.ileren.voorzetsels',
     nl: {
@@ -407,7 +480,7 @@ export const projects = [
     },
   },
   {
-    id: 12,
+    id: 'nt2etenendrinken-android',
     image: 'nt2etenendrinken.png',
     url: 'https://play.google.com/store/apps/details?id=ileren.be.nt2etenendrinken',
     nl: {
@@ -448,7 +521,7 @@ export const projects = [
     },
   },
   {
-    id: 13,
+    id: 'medischrekenen-android',
     image: 'medischrekenen.png',
     url: 'https://play.google.com/store/apps/details?id=appinventor.ai_diboma.MedischRekenen',
     nl: {
@@ -485,7 +558,7 @@ export const projects = [
     },
   },
   {
-    id: 14,
+    id: 'zuurbase-android',
     image: 'zuurbase.png',
     url: 'https://play.google.com/store/apps/details?id=be.ileren.zuurbase',
     nl: {
@@ -519,74 +592,6 @@ export const projects = [
       summary: 'Food list with acid-base values',
       details: `This app provides a list where you can consult the acid-base values.
        | Android Studio, Cordova, HTML, CSS, Bootstrap, Javascript`,
-    },
-  },
-  {
-    id: 15,
-    image: 'canvas.png',
-    // url: 'https://canvas.dirkb.cyou/',
-    nl: {
-      linkText: 'Bekijk het project',
-      category: 'Cloud Installaties',
-      categoryIcons: ['ruby.png'],
-      title: 'Canvas LMS',
-      summary: 'Testomgeving',
-      details: `Testomgeving met de open source versie van Canvas LMS.
-      | Oracle Cloud Instance.
-      | Virtualhost met toekenning domeinnaam.
-      | <a href="https://github.com/instructure/canvas-lms" target="_blank">GitHub Repo</a>
-      | Dit project staat niet meer online.`,
-    },
-    en: {
-      linkText: 'View the project',
-      category: 'Cloud Installations',
-      categoryIcons: ['ruby.png'],
-      title: 'Canvas LMS',
-      summary: 'Test environment',
-      details: `Test environment with the open source version of Canvas LMS.
-       | Oracle Cloud Instance.
-       | Virtualhost with domain name assignment.
-       | <a href="https://github.com/instructure/canvas-lms" target="_blank">GitHub Repo</a>
-       | This project is no longer online.`,
-    },
-  },
-  {
-    id: 16,
-    image: 'justdoit.png',
-    // url: 'https://gcp.dirkb.cyou:3000/',
-    nl: {
-      linkText: 'Bekijk het project',
-      category: 'Cloud Installaties',
-      categoryIcons: [
-        'nodejs.png',
-        'express.png',
-        'typeorm.png',
-        'handlebars.png',
-        'css.png',
-        'js.png',
-      ],
-      title: 'Just Do IT',
-      summary: 'Todo applicatie',
-      details: `Opdracht voor Arteveldehogeschool. 
-      | Een todo-applicatie met Express, TypeORM (sqlite3), Handlebars, authenticatie met JSON Web Token.
-      | Dit project staat niet meer online.`,
-    },
-    en: {
-      linkText: 'View the project',
-      category: 'Cloud Installations',
-      categoryIcons: [
-        'nodejs.png',
-        'express.png',
-        'typeorm.png',
-        'handlebars.png',
-        'css.png',
-        'js.png',
-      ],
-      title: 'Just Do IT',
-      summary: 'Todo application',
-      details: `Assignment for Arteveldehogeschool (Ghent, Belglium).
-       | A todo application with Express, TypeORM (sqlite3), Handlebars, authentication with JSON Web Token.
-       | This project is no longer online.`,
     },
   },
 ];

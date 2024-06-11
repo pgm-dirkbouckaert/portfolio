@@ -111,8 +111,8 @@ import {
             <h2 class="category">${category}</h2>
             <ul class="project-list">
               ${filteredProjects
-              .map((project) => {
-                return `
+                .map((project) => {
+                  return `
                   <li class="project-card">
                     <a href="" data-project-id="${project.id}">
                       <img src="images/${project.image}" alt="logo" />
@@ -120,8 +120,8 @@ import {
                     </a>
                     <div class="tooltip">${project[this.language].summary}</div>
                   </li>`;
-              })
-              .join('')}
+                })
+                .join('')}
             </ul>
           `;
         })
@@ -135,7 +135,7 @@ import {
       for (const link of links) {
         link.addEventListener('click', (e) => {
           e.preventDefault();
-          const projectId = parseInt(e.currentTarget.dataset.projectId, 10);
+          const projectId = e.currentTarget.dataset.projectId;
           const project = projects.find((p) => p.id === projectId);
           if (!project) {
             return this.showModal({
@@ -155,12 +155,14 @@ import {
     renderProjectDetails(project) {
       return `
         <h3 class="project-title">
-        ${project.url
-          ? `<a href="${project.url}" target="_blank">
+        ${
+          project.url
+            ? `<a href="${project.url}" target="_blank">
               ${project[this.language].title}
               <i class="fa-solid fa-arrow-up-right-from-square"></i>
              </a>`
-          : `${project[this.language].title}`}
+            : `${project[this.language].title}`
+        }
         </h3>
         <div class="project-category-icons">${project[this.language].categoryIcons
           .map((icon) => {
@@ -172,15 +174,19 @@ import {
         <div class="project-details">
           <ul>
           ${project[this.language].details
-          .split('|')
-          .map((item) => `<li>${item.trim()}</li>`)
-          .join('')}
-          ${project.url
-          ? `<li>
-                <a href="${project.url}" target="_blank">${project[this.language].linkText}
+            .split('|')
+            .map((item) => `<li>${item.trim()}</li>`)
+            .join('')}
+          ${
+            project.url
+              ? `<li>
+                <a href="${project.url}" target="_blank">${
+                  project[this.language].linkText
+                }
                 </a>
               </li>`
-          : ''}
+              : ''
+          }
           </ul>  
         </div>
         ${this.renderProjectDetailsNav(projects.findIndex((p) => p.id === project.id))}
@@ -189,20 +195,22 @@ import {
     renderProjectDetailsNav(currentIndex) {
       return `
         <div class="project-footer-nav">
-          ${currentIndex !== 0
-          ? `<button  id="btn-previous" class="btn-previous" 
+          ${
+            currentIndex !== 0
+              ? `<button  id="btn-previous" class="btn-previous" 
                           data-previous-index="${currentIndex - 1}">
                   <i class="fa-solid fa-angles-left"></i></i>
                  </button>`
-          : '<i>&nbsp;</i>'
-        }
-          ${currentIndex !== projects.length - 1
-          ? `<button  id="btn-next" class="btn-next" 
+              : '<i>&nbsp;</i>'
+          }
+          ${
+            currentIndex !== projects.length - 1
+              ? `<button  id="btn-next" class="btn-next" 
                           data-next-index="${currentIndex + 1}">
                   <i class="fa-solid fa-angles-right"></i>
                  </button>`
-          : '<i>&nbsp;</i>'
-        }
+              : '<i>&nbsp;</i>'
+          }
         </div>
       `;
     },
@@ -210,7 +218,7 @@ import {
       const button = document.getElementById('btn-previous');
       if (button) {
         button.addEventListener('click', (e) => {
-          const newIndex = parseInt(e.currentTarget.dataset.previousIndex, 10);
+          const newIndex = e.currentTarget.dataset.previousIndex;
           const newProject = projects[newIndex];
           this.showModal({
             type: 'info',
@@ -225,7 +233,7 @@ import {
       const button = document.getElementById('btn-next');
       if (button) {
         button.addEventListener('click', (e) => {
-          const newIndex = parseInt(e.currentTarget.dataset.nextIndex, 10);
+          const newIndex = e.currentTarget.dataset.nextIndex;
           const newProject = projects[newIndex];
           this.showModal({
             type: 'info',
@@ -331,10 +339,10 @@ import {
       return `
         <ul>
           ${errors
-          .map((error) => {
-            return `<li>${error}</li>`;
-          })
-          .join('')}
+            .map((error) => {
+              return `<li>${error}</li>`;
+            })
+            .join('')}
         </ul>
       `;
     },
