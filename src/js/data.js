@@ -130,7 +130,7 @@ export const projects = [
   {
     id: 'justdoit',
     image: 'justdoit.png',
-    url: 'https://gcp.dirkb.cyou:3000/',
+    // url: 'https://gcp.dirkb.cyou:3000/',
     nl: {
       linkText: 'Bekijk het project',
       category: 'NodeJS/Express/React',
@@ -171,9 +171,9 @@ export const projects = [
   {
     id: 'twitch',
     image: 'twitch.png',
-    // url: 'https://gcp.dirkb.cyou:3333/',
+    url: 'https://youtu.be/WD8Xmfcpit8',
     nl: {
-      linkText: 'Bekijk het project',
+      linkText: 'Bekijk een demoflmpje',
       category: 'NodeJS/Express/React',
       categoryIcons: [
         'nodejs.png',
@@ -184,16 +184,15 @@ export const projects = [
         'js.png',
       ],
       title: 'twITch',
-      summary:
-        'Een platform waaop leerkrachten hun videos over IT onderwerpen aanbieden.',
+      summary: 'Een video platform over IT onderwerpen.',
       details: `Opdracht voor Arteveldehogeschool. 
+      | Een video platform waaop leerkrachten hun videos over IT onderwerpen aanbieden.
       | Express, TypeORM (sqlite3), Handlebars, Bootstrap, authenticatie met JSON Web Token, gebruikersrollen.
-      | Jest (Testing)
-      | Swagger (API Docs)
+      | Jest (Testing) & Swagger (API Docs)
       | <a href="https://github.com/pgm-dirkbouckaert/twitch" target="_blank">GitHub Repo</a>`,
     },
     en: {
-      linkText: 'View the project',
+      linkText: 'View a demo video',
       category: 'NodeJS/Express/React',
       categoryIcons: [
         'nodejs.png',
@@ -204,41 +203,39 @@ export const projects = [
         'js.png',
       ],
       title: 'twITch',
-      summary: 'A platform on which teachers offer their videos on IT-related topics.',
+      summary: 'A video platform for IT topics.',
       details: `Assignment for Arteveldehogeschool (Ghent, Belgium).
+       | A video platform where teachers can offer videos on IT topics.
        | Express, TypeORM (sqlite3), Handlebars, Bootstrap, authentication with JSON Web Token, user roles.
-       | Jest (Testing)
-       | Swagger (API Docs)
+       | Jest (Testing) & Swagger (API Docs)
        | <a href="https://github.com/pgm-dirkbouckaert/twitch" target="_blank">GitHub Repo</a>`,
     },
   },
   {
     id: 'pgm-gent',
     image: 'pgm-gent.png',
-    url: 'https://pgm-platform-pgm-dirkbouckaert.onrender.com/',
+    url: 'https://youtu.be/CkVV1sz7ALo',
     nl: {
-      linkText: 'Bekijk het project',
+      linkText: 'Bekijk een demofilmpje',
       category: 'NodeJS/Express/React',
       categoryIcons: ['react.png', 'tailwind.png', 'hygraph.png', 'cloudinary.png'],
-      title: 'Pgm Gent',
-      summary: 'Een platform voor de opleiding Graduaat Programmeren.',
+      title: 'PGM Gent',
+      summary: 'Een platform voor het Graduaat Programmeren.',
       details: `Opdracht voor Arteveldehogeschool. 
-      | React met client-side routing, state management (context), SEO friendly head-tags
+      | React met client-side routing, state management, context, SEO friendly head-tags (Helmet)
       | Styling met Tailwind CSS
-      | Integratie van Cloud services: GraphCMS, Cloudinary
-      | Deployment op Render.com (het kan tot 1 minuut duren vooraleer de service geactiveerd wordt)`,
+      | Integratie van Cloud services: GraphCMS, Cloudinary`,
     },
     en: {
-      linkText: 'View the project',
+      linkText: 'View a demo video',
       category: 'NodeJS/Express/React',
       categoryIcons: ['react.png', 'tailwind.png', 'hygraph.png', 'cloudinary.png'],
-      title: 'Pgm Gent',
-      summary: 'An online platform for the Associate Degree in Computer Programming.',
+      title: 'PGM Gent',
+      summary: 'A platform for the Associate Degree in Programming.',
       details: `Assignment for Arteveldehogeschool (Ghent, Belgium).
-       | React with client-side routing, state management (context), SEO friendly head-tags
+       | React with client-side routing, state management, context, SEO friendly head-tags (Helmet)
        | Styling with Tailwind CSS
-       | Integration of Cloud services: GraphCMS, Cloudinary
-       | Deployment on Render.com (it can take up to 1 minute before the service is activated)`,
+       | Integration of Cloud services: GraphCMS, Cloudinary`,
     },
   },
   {

@@ -161,7 +161,6 @@ a:hover {
 .modal {
   width: calc(100% - 2rem);
   max-width: 38rem;
-  /* min-height: 7rem; */
   min-height: 27rem;
   background-color: var(--color-white);
   box-shadow: 2px 4px 8px var(--color-gray-dark);
@@ -496,6 +495,7 @@ body.modal-active .projects {
   position: absolute;
   width: 100%;
   min-height: 3.125rem;
+  padding: 0.5rem;
   top: -2rem;
   left: 55%;
   transform: translateX(-50%);
