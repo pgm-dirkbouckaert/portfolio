@@ -188,7 +188,7 @@ export const projects = [
         'Een platform waaop leerkrachten hun videos over IT onderwerpen aanbieden.',
       details: `Opdracht voor Arteveldehogeschool. 
       | Express, TypeORM (sqlite3), Handlebars, Bootstrap, authenticatie met JSON Web Token, gebruikersrollen.
-      | Testing: Jest
+      | Jest (Testing)
       | Swagger (API Docs)
       | <a href="https://github.com/pgm-dirkbouckaert/twitch" target="_blank">GitHub Repo</a>`,
     },
@@ -207,7 +207,7 @@ export const projects = [
       summary: 'A platform on which teachers offer their videos on IT-related topics.',
       details: `Assignment for Arteveldehogeschool (Ghent, Belgium).
        | Express, TypeORM (sqlite3), Handlebars, Bootstrap, authentication with JSON Web Token, user roles.
-       | Testing: Jest
+       | Jest (Testing)
        | Swagger (API Docs)
        | <a href="https://github.com/pgm-dirkbouckaert/twitch" target="_blank">GitHub Repo</a>`,
     },
