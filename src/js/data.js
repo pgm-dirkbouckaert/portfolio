@@ -224,7 +224,7 @@ export const projects = [
       details: `Opdracht voor Arteveldehogeschool. 
       | React met client-side routing, state management, context, SEO friendly head-tags (Helmet)
       | Styling met Tailwind CSS
-      | Integratie van Cloud services: GraphCMS, Cloudinary`,
+      | Integratie van Cloud services: Hygraph, Cloudinary`,
     },
     en: {
       linkText: 'View a demo video',
@@ -235,7 +235,7 @@ export const projects = [
       details: `Assignment for Arteveldehogeschool (Ghent, Belgium).
        | React with client-side routing, state management, context, SEO friendly head-tags (Helmet)
        | Styling with Tailwind CSS
-       | Integration of Cloud services: GraphCMS, Cloudinary`,
+       | Integration of Cloud services: Hygraph, Cloudinary`,
     },
   },
   {
