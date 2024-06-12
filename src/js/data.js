@@ -130,7 +130,7 @@ export const projects = [
   {
     id: 'justdoit',
     image: 'justdoit.png',
-    // url: 'https://gcp.dirkb.cyou:3000/',
+    url: 'https://gcp.dirkb.cyou:3000/',
     nl: {
       linkText: 'Bekijk het project',
       category: 'NodeJS/Express/React',
