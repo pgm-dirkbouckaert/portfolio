@@ -64,7 +64,6 @@ export const projects = [
       summary: 'Muziekstreaming',
       details: `Website waarop online muziek gestreamd wordt.
       | De albums kunnen gedownload worden.
-      | Er kunnen ook een aantal teksten en partituren gedownload worden.
       | HTML, CSS, Bootstrap, Javascript.`,
     },
     en: {
@@ -75,7 +74,6 @@ export const projects = [
       summary: 'Music streaming',
       details: `Website with online music streaming.
        | The albums can be downloaded.
-       | Some lyrics and sheet music can also be downloaded.
        | HTML, CSS, Bootstrap, Javascript.`,
     },
   },
