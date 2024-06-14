@@ -357,11 +357,26 @@ import {
     },
     listenForCloseModal() {
       if (this.$modal) {
-        this.$btnCloseModal.addEventListener('click', (e) => {
-          this.$modal.setAttribute('class', 'modal hidden');
-          this.$modalBody.innerHTML = '';
-          this.$body.classList.remove('modal-active');
-        });
+        this.$btnCloseModal.addEventListener('click', this.closeModal.bind(this));
+        window.addEventListener('keydown', this.closeModalWithEsc.bind(this));
+      }
+    },
+    closeModal() {
+      this.$modal.setAttribute('class', 'modal hidden');
+      this.$modalBody.innerHTML = '';
+      this.$body.classList.remove('modal-active');
+      this.$btnCloseModal.removeEventListener('click', this.closeModal);
+      window.removeEventListener('keydown', this.closeModalWithEsc);
+    },
+    closeModalWithEsc(e) {
+      if (e.key.toLowerCase() === 'escape') {
+        this.closeModal();
+        this.$btnCloseModal.removeEventListener(
+          'click',
+          this.closeModal.bind(this),
+          false
+        );
+        window.removeEventListener('keydown', this.closeModalWithEsc.bind(this), false);
       }
     },
   };
